@@ -4,35 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Johannes Steyn | Resume</title>
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <!-- Custom Styles -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Navigation -->
   <nav id="navbar">
     <div class="container">
       <a href="#" class="logo">Johannes Steyn</a>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certificates">Certificates</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#education">Education</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <div class="nav-toggle">
-        <div></div>
-        <div></div>
-        <div></div>
+        <div></div><div></div><div></div>
       </div>
     </div>
   </nav>
 
-  <!-- Hero Section -->
   <header class="hero-section" id="home">
     <div class="container">
       <h1>Hello, I'm Johannes Steyn</h1>
@@ -40,7 +34,6 @@
     </div>
   </header>
 
-  <!-- About Section -->
   <section id="about">
     <div class="container">
       <h2>About Me</h2>
@@ -57,7 +50,6 @@
     </div>
   </section>
 
-  <!-- Skills Section -->
   <section id="skills">
     <div class="container">
       <h2>Skills</h2>
@@ -90,22 +82,45 @@
     </div>
   </section>
 
-  <!-- Projects Section -->
-  <section id="projects">
+  <!-- Certificates Section -->
+  <section id="certificates">
     <div class="container">
-      <h2>Projects</h2>
+      <h2>Certificates</h2>
       <div class="projects-grid">
         <div class="project-card">
-          <h3>Condition Monitoring Program</h3>
+          <h3>SKF @ptitude Analyst Training</h3>
           <p>
-            Assisted in vibration analysis and the design of preventive maintenance strategies for rotating equipment at Highland Valley Copper.
+            Completed certification in SKF @ptitude Analyst software for vibration analysis and condition monitoring of rotating equipment.
+          </p>
+        </div>
+        <div class="project-card">
+          <h3>OSHA Safety Certificate (30-Hour General Industry)</h3>
+          <p>
+            Comprehensive training on occupational health and safety standards for general industry, covering hazard identification, prevention, and reporting.
+          </p>
+        </div>
+        <div class="project-card">
+          <h3>SolidWorks Associate (CSWA)</h3>
+          <p>
+            Certified SolidWorks Associate credential validating 3D CAD modeling skills, part design, assemblies, and drawing interpretation.
+          </p>
+        </div>
+        <div class="project-card">
+          <h3>MATLAB Onramp Certificate</h3>
+          <p>
+            Introductory certificate for proficiency with MATLAB programming and basic data analysis, modeling, and simulations.
+          </p>
+        </div>
+        <div class="project-card">
+          <h3>Microsoft Excel Advanced Certification</h3>
+          <p>
+            Proficiency in data analysis, complex functions, pivot tables, and data visualization techniques using Excel.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Experience Section -->
   <section id="experience">
     <div class="container">
       <h2>Experience</h2>
@@ -123,7 +138,6 @@
     </div>
   </section>
 
-  <!-- Education Section -->
   <section id="education">
     <div class="container">
       <h2>Education</h2>
@@ -146,7 +160,6 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
   <section id="contact">
     <div class="container">
       <h2>Contact</h2>
@@ -155,14 +168,12 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <div class="container">
       <p>&copy; <span id="year"></span> Johannes Steyn. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- Custom Scripts -->
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
