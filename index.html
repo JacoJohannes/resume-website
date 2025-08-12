@@ -1,55 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Johannes Steyn | Resume</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- NAV -->
   <nav id="navbar">
     <div class="container">
       <a href="#" class="logo">Johannes Steyn</a>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
-        <li><a href="#certificates">Certificates</a></li>
         <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
         <li><a href="#education">Education</a></li>
+        <li><a href="#certificates">Certificates</a></li>
+        <li><a href="#volunteer">Volunteer</a></li>
+        <li><a href="#affiliations">Affiliations</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <div class="nav-toggle">
-        <div></div><div></div><div></div>
-      </div>
+      <div class="nav-toggle"><div></div><div></div><div></div></div>
     </div>
   </nav>
 
+  <!-- HERO -->
   <header class="hero-section" id="home">
     <div class="container">
       <h1>Hello, I'm Johannes Steyn</h1>
       <p>A <span class="profession">Mechanical Engineering Student at UBC</span></p>
+      <div class="hero-ctas">
+        <!-- NOTE: place your PDF at /assets/Johannes_Steyn_Resume.pdf or update href -->
+        <a class="btn" href="assets/Johannes_Steyn_Resume.pdf" target="_blank" rel="noopener">Download Résumé (PDF)</a>
+        <a class="btn btn-secondary" href="#contact">Get in Touch</a>
+      </div>
     </div>
   </header>
 
+  <!-- ABOUT -->
   <section id="about">
     <div class="container">
       <h2>About Me</h2>
       <div class="about-content">
         <div class="about-text">
           <p>
-            I’m passionate about reliability and maintenance engineering, with hands-on experience conducting condition monitoring and failure analysis at mining sites. I enjoy applying engineering principles to improve safety and operational efficiency in heavy industries.
+            I’m passionate about reliability and maintenance engineering, with hands-on condition monitoring and
+            failure analysis experience at mining sites. My work at Highland Valley Copper with BTA Oil Analysis Ltd. sparked
+            a deep interest in large scale mining and reliability engineering. I’m legally eligible to work in Canada and will
+            be a full‑time UBC student throughout my co‑op term.
           </p>
         </div>
         <div class="about-image">
-          <img src="images/profile.png" alt="Profile Photo" />
+          <img src="images/profile.png" alt="Profile Photo of Johannes Steyn" />
         </div>
       </div>
     </div>
   </section>
 
+  <!-- SKILLS -->
   <section id="skills">
     <div class="container">
       <h2>Skills</h2>
@@ -57,70 +70,32 @@
         <div class="skill">
           <h3>Reliability & Maintenance</h3>
           <ul>
-            <li>FMEAs, Preventive Maintenance Planning</li>
-            <li>Vibrational Analysis (SKF @ptitude Analyst)</li>
-            <li>Field Experience with Mining Equipment</li>
+            <li>FMEAs & Preventive Maintenance (PM) planning</li>
+            <li>Vibration analysis (SKF @ptitude Analyst)</li>
+            <li>Field experience with mining equipment & rotating machinery</li>
           </ul>
         </div>
         <div class="skill">
-          <h3>Engineering Tools</h3>
+          <h3>Data & Engineering Tools</h3>
           <ul>
             <li>Power BI, Excel, Google Sheets</li>
             <li>SolidWorks, AutoCAD, MATLAB</li>
-            <li>Microsoft Office Suite</li>
+            <li>Microsoft Office (Word, PowerPoint, Outlook)</li>
           </ul>
         </div>
         <div class="skill">
-          <h3>Programming & Collaboration</h3>
+          <h3>Programming & Prototyping</h3>
           <ul>
-            <li>C/C++, Arduino IDE</li>
-            <li>Prototyping, Soldering</li>
-            <li>Budgeting, Communication, Teamwork</li>
+            <li>C/C++, Arduino IDE, circuit design</li>
+            <li>Engineering drawings, machining, microcontroller boards, soldering</li>
+            <li>Budgeting, scheduling, clear written & verbal communication</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Certificates Section -->
-  <section id="certificates">
-    <div class="container">
-      <h2>Certificates</h2>
-      <div class="projects-grid">
-        <div class="project-card">
-          <h3>SKF @ptitude Analyst Training</h3>
-          <p>
-            Completed certification in SKF @ptitude Analyst software for vibration analysis and condition monitoring of rotating equipment.
-          </p>
-        </div>
-        <div class="project-card">
-          <h3>OSHA Safety Certificate (30-Hour General Industry)</h3>
-          <p>
-            Comprehensive training on occupational health and safety standards for general industry, covering hazard identification, prevention, and reporting.
-          </p>
-        </div>
-        <div class="project-card">
-          <h3>SolidWorks Associate (CSWA)</h3>
-          <p>
-            Certified SolidWorks Associate credential validating 3D CAD modeling skills, part design, assemblies, and drawing interpretation.
-          </p>
-        </div>
-        <div class="project-card">
-          <h3>MATLAB Onramp Certificate</h3>
-          <p>
-            Introductory certificate for proficiency with MATLAB programming and basic data analysis, modeling, and simulations.
-          </p>
-        </div>
-        <div class="project-card">
-          <h3>Microsoft Excel Advanced Certification</h3>
-          <p>
-            Proficiency in data analysis, complex functions, pivot tables, and data visualization techniques using Excel.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
+  <!-- EXPERIENCE -->
   <section id="experience">
     <div class="container">
       <h2>Experience</h2>
@@ -128,22 +103,79 @@
         <div class="timeline-item">
           <div class="timeline-date">May 2025 – Present</div>
           <div class="timeline-content">
-            <h3>Co-op Student – BTA Oil Analysis Ltd</h3>
-            <p>
-              Conducted on-site maintenance at Highland Valley Copper, performed vibration assessments, and supported the development of FMEAs and data-driven maintenance planning.
-            </p>
+            <h3>Co‑op Student — BTA Oil Analysis Ltd (Kamloops, BC)</h3>
+            <ul>
+              <li>Conduct maintenance routes at Highland Valley Copper (HVC), gaining hands‑on familiarity with site operations and safety protocols.</li>
+              <li>Perform vibration analysis and reliability assessments using SKF @ptitude Analyst to monitor rotating equipment and detect early failures.</li>
+              <li>Contribute to FMEAs, Preventative Maintenance strategies, and job plans to improve operational reliability.</li>
+              <li>Support continuous improvement by analyzing asset performance data and collaborating with site maintenance teams.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Apr 2020 – Aug 2024</div>
+          <div class="timeline-content">
+            <h3>Server — Scoopz Ice Cream Parlour (Kamloops, BC)</h3>
+            <ul>
+              <li>Resolved unexpected issues to maintain smooth operations and customer satisfaction.</li>
+              <li>Collaborated with dozens of teammates to ensure efficient service and communication.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Jul 2022 – Sep 2023</div>
+          <div class="timeline-content">
+            <h3>Program Leader — Thompson Valley Kids (Kamloops, BC)</h3>
+            <ul>
+              <li>Led teams to deliver activities for large groups of children; coordinated with parents and staff.</li>
+              <li>Planned and executed projects through defined stages to timely completion.</li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>Smart Irrigation System <span class="badge">May 2025 – Present</span></h3>
+          <p>Automatic irrigation that senses soil moisture and waters crops accordingly (Arduino/C++).</p>
+        </div>
+        <div class="project-card">
+          <h3>Robotic Rail Cart (MECH 223) <span class="badge">Jan – Apr 2025</span></h3>
+          <p>Powered cart designed by a team of 6 to traverse standard rail tracks; optimized for stability and load capacity.</p>
+        </div>
+        <div class="project-card">
+          <h3>Digital Readout System <span class="badge">Jul – Aug 2024</span></h3>
+          <p>Seven‑segment display DRO built with microcontroller boards; programmed in C/C++ (Arduino IDE).</p>
+        </div>
+        <div class="project-card">
+          <h3>Wireless Claw (APSC 101) <span class="badge">Jan – Mar 2024</span></h3>
+          <p>Team of 4; CAD, physical prototyping, and embedded control.</p>
+        </div>
+        <div class="project-card">
+          <h3>Management of Crowd <span class="badge">Jul – Aug 2023</span></h3>
+          <p>Coordinated activity schedules for a special‑needs camp; focus on planning and directing large group dynamics.</p>
+        </div>
+        <div class="project-card">
+          <h3>Absorbent Catcher <span class="badge">Nov 2021 – Mar 2022</span></h3>
+          <p>Device designed to safely capture an egg dropped from height; structural design and stress analysis.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
   <section id="education">
     <div class="container">
       <h2>Education</h2>
       <div class="timeline">
         <div class="timeline-item">
-          <div class="timeline-date">2023 – 2027</div>
+          <div class="timeline-date">2023 – 2027 (Expected Apr 2027)</div>
           <div class="timeline-content">
             <h3>University of British Columbia</h3>
             <p>Bachelor of Applied Science – Mechanical Engineering</p>
@@ -160,6 +192,75 @@
     </div>
   </section>
 
+  <!-- CERTIFICATES & TRAINING -->
+  <section id="certificates">
+    <div class="container">
+      <h2>Certificates & Training</h2>
+      <div class="projects-grid">
+        <!-- Coursera -->
+        <div class="project-card">
+          <h3>FEM — Linear, Nonlinear Analysis & Post‑Processing</h3>
+          <p>Coursera Project Network — Grade Achieved: 83.33%</p>
+          <!-- place screenshot at images/certificates/coursera-fem-linear.png -->
+          <img src="images/certificates/coursera-fem-linear.png" alt="Coursera FEM Linear Nonlinear certificate screenshot" />
+        </div>
+        <div class="project-card">
+          <h3>Finite Element Analysis Convergence and Mesh Independence</h3>
+          <p>Coursera Project Network — Grade Achieved: 87.50%</p>
+          <!-- place screenshot at images/certificates/coursera-fea-mesh-independence.png -->
+          <img src="images/certificates/coursera-fea-mesh-independence.png" alt="Coursera FEA Convergence and Mesh Independence certificate screenshot" />
+        </div>
+
+        <!-- SKF Distributor College -->
+        <div class="project-card">
+          <h3>SKF Bearing Basics</h3>
+          <p>SKF Distributor College — Completed Aug 04, 2025</p>
+          <img src="images/certificates/skf-bearing-basics.png" alt="SKF Bearing Basics badge screenshot" />
+        </div>
+        <div class="project-card">
+          <h3>SKF Anti‑Counterfeit Awareness</h3>
+          <p>SKF Distributor College — Completed Aug 05, 2025</p>
+          <img src="images/certificates/skf-anti-counterfeit.png" alt="SKF Anti‑Counterfeit Awareness badge screenshot" />
+        </div>
+        <div class="project-card">
+          <h3>SKF Re‑lubrication</h3>
+          <p>SKF Distributor College — Completed Aug 08, 2025</p>
+          <img src="images/certificates/skf-re-lubrication.png" alt="SKF Re‑lubrication badge screenshot" />
+        </div>
+
+        <!-- Other / existing items (optional) -->
+        <div class="project-card">
+          <h3>SKF @ptitude Analyst — Vibration Analysis</h3>
+          <p>Training in @ptitude Analyst for condition monitoring of rotating equipment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VOLUNTEER -->
+  <section id="volunteer">
+    <div class="container">
+      <h2>Volunteer</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>Sacred Heart Cathedral — Server</h3>
+          <p>Sept 2019 – Jun 2023 — Organized monthly breakfast program for the unhoused; focused on workflow optimization, team cooperation, and resource distribution.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AFFILIATIONS -->
+  <section id="affiliations">
+    <div class="container">
+      <h2>Affiliations</h2>
+      <ul>
+        <li>Engineers and Geoscientists BC — Student Member (2024 – Present)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
   <section id="contact">
     <div class="container">
       <h2>Contact</h2>
