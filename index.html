@@ -3,239 +3,282 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Johannes Steyn | Resume</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <title>I²C Fundamentals | Embedded Communication</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- NAV -->
-  <nav id="navbar">
-    <div class="container">
-      <a href="#" class="logo">Johannes Steyn</a>
+  <header class="hero">
+    <nav class="navbar">
+      <div class="logo">I²C Fundamentals</div>
       <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#certificates">Certificates</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#volunteer">Volunteer</a></li>
-        <li><a href="#affiliations">Affiliations</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#signals">Signals</a></li>
+        <li><a href="#advantages">Advantages</a></li>
+        <li><a href="#uses">Uses</a></li>
       </ul>
-      <div class="nav-toggle"><div></div><div></div><div></div></div>
-    </div>
-  </nav>
+    </nav>
 
-  <!-- HERO -->
-  <header class="hero-section" id="home">
-    <div class="container">
-      <h1>Johannes Steyn</h1>
-      <p>A <span class="profession">Mechanical Engineering Student at UBC</span></p>
+    <div class="hero-content">
+      <h1>Understanding I²C in Embedded Systems</h1>
+      <p>
+        A simple guide to the Inter-Integrated Circuit protocol:
+        how devices communicate, why pull-up resistors matter,
+        and where I²C is used in real embedded designs.
+      </p>
+      <a href="#overview" class="btn">Start Learning</a>
     </div>
   </header>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="container">
-      <h2>About Me</h2>
-      <p>
-        I’m passionate about reliability and maintenance engineering, with hands-on condition monitoring and
-        failure analysis experience at mining sites. My work at Highland Valley Copper with BTA Oil Analysis Ltd. sparked
-        a deep interest in large scale mining and reliability engineering. I’m legally eligible to work in Canada and will
-        be a full‑time UBC student throughout my co‑op term.
-      </p>
-    </div>
-  </section>
+  <main>
+    <section id="overview" class="section">
+      <div class="container">
+        <h2>What is I²C?</h2>
+        <p>
+          I²C, or Inter-Integrated Circuit, is a synchronous serial communication
+          protocol used for short-distance communication between microcontrollers,
+          sensors, memory chips, displays, and other peripherals.
+        </p>
+        <p>
+          It was designed to let multiple devices communicate using only
+          <strong>two wires</strong>: one for data and one for clock.
+        </p>
 
-  <!-- SKILLS -->
-  <section id="skills">
-    <div class="container">
-      <h2>Skills</h2>
-      <div class="skills-grid">
-        <div class="skill">
-          <h3>Reliability & Maintenance</h3>
-          <ul>
-            <li>FMEAs & Preventive Maintenance (PM) planning</li>
-            <li>Vibration analysis (SKF @ptitude Analyst)</li>
-            <li>Field experience with mining equipment & rotating machinery</li>
-          </ul>
-        </div>
-        <div class="skill">
-          <h3>Data & Engineering Tools</h3>
-          <ul>
-            <li>Power BI, Excel, Google Sheets</li>
-            <li>SolidWorks, AutoCAD, MATLAB</li>
-            <li>Microsoft Office (Word, PowerPoint, Outlook)</li>
-          </ul>
-        </div>
-        <div class="skill">
-          <h3>Programming & Prototyping</h3>
-          <ul>
-            <li>C/C++, Arduino IDE, circuit design</li>
-            <li>Engineering drawings, machining, microcontroller boards, soldering</li>
-            <li>Budgeting, scheduling, clear written & verbal communication</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <div class="container">
-      <h2>Experience</h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-date">August 2025 – Present</div>
-          <div class="timeline-content">
-            <h3>Co‑op Student — BTA Oil Analysis Ltd (Kamloops, BC)</h3>
-            <p>Conducted maintenance routes at Highland Valley Copper, performing vibration analysis and reliability assessments, and contributing to maintenance strategies, FMEAs, and continuous improvement efforts through data analysis and collaboration.</p>
+        <div class="card-grid">
+          <div class="card">
+            <h3>Two-Wire Bus</h3>
+            <p>
+              I²C uses SDA for data and SCL for clock, reducing wiring complexity.
+            </p>
           </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-date">2020 – 2024</div>
-          <div class="timeline-content">
-            <h3>Various Retail Positions</h3>
-            <p>Gained extensive customer service experience, maintained efficiency in high‑pressure environments, demonstrated teamwork and leadership, and adapted quickly to new procedures and technologies across multiple roles.</p>
+          <div class="card">
+            <h3>Master-Slave System</h3>
+            <p>
+              A master device controls communication while slave devices respond
+              to requests using their unique addresses.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Address-Based</h3>
+            <p>
+              Each slave has an address, so multiple devices can share the same bus.
+            </p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CERTIFICATES & TRAINING -->
-  <section id="certificates">
-    <div class="container">
-      <h2>Certificates & Training</h2>
-      <div class="projects-grid">
-        <div class="project-card">
-          <h3>FEM — Linear, Nonlinear Analysis & Post‑Processing</h3>
-          <p>Coursera Project Network</p>
-        </div>
-        <div class="project-card">
-          <h3>Finite Element Analysis Convergence and Mesh Independence</h3>
-          <p>Coursera Project Network</p>
-        </div>
-        <div class="project-card">
-          <h3>SKF Bearing Basics</h3>
-          <p>SKF Distributor College</p>
-        </div>
-        <div class="project-card">
-          <h3>SKF Anti‑Counterfeit Awareness</h3>
-          <p>SKF Distributor College</p>
-        </div>
-        <div class="project-card">
-          <h3>SKF Re‑lubrication</h3>
-          <p>SKF Distributor College</p>
-        </div>
-        <div class="project-card">
-          <h3>SKF @ptitude Analyst — Vibration Analysis</h3>
-          <p>Training in @ptitude Analyst for condition monitoring of rotating equipment.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    <section id="how-it-works" class="section alt">
+      <div class="container">
+        <h2>How I²C Works</h2>
+        <p>
+          In an I²C system, the master begins communication by generating a
+          <strong>start condition</strong>. It then sends the address of the slave
+          device it wants to talk to, followed by a read or write bit.
+        </p>
 
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="container">
-      <h2>Projects</h2>
-      <div class="projects-grid">
-        <div class="project-card">
-          <h3>Smart Irrigation System <span class="badge">May 2025 – Present</span></h3>
-          <p>Automatic irrigation that senses soil moisture and waters crops accordingly (Arduino/C++).</p>
-        </div>
-        <div class="project-card">
-          <h3>Robotic Rail Cart (MECH 223) <span class="badge">Jan – Apr 2025</span></h3>
-          <p>Powered cart designed by a team of 6 to traverse standard rail tracks; optimized for stability and load capacity.</p>
-        </div>
-        <div class="project-card">
-          <h3>Several Small‑Scale Arduino Projects</h3>
-          <p>Collection of Arduino‑based builds demonstrating proficiency in microcontroller programming, circuit design, and prototyping.</p>
-        </div>
-        <div class="project-card">
-          <h3>Wireless Claw (APSC 101) <span class="badge">Jan – Mar 2024</span></h3>
-          <p>Team of 4; CAD, physical prototyping, and embedded control.</p>
-        </div>
-        <div class="project-card">
-          <h3>Management of Crowd <span class="badge">Jul – Aug 2023</span></h3>
-          <p>Coordinated activity schedules for a special‑needs camp; focus on planning and directing large group dynamics.</p>
-        </div>
-        <div class="project-card">
-          <h3>Absorbent Catcher <span class="badge">Nov 2021 – Mar 2022</span></h3>
-          <p>Device designed to safely capture an egg dropped from height; structural design and stress analysis.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EDUCATION -->
-  <section id="education">
-    <div class="container">
-      <h2>Education</h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-date">2023 – 2027 (Expected Apr 2027)</div>
-          <div class="timeline-content">
-            <h3>University of British Columbia</h3>
-            <p>Bachelor of Applied Science – Mechanical Engineering</p>
+        <div class="steps">
+          <div class="step">
+            <span class="step-number">1</span>
+            <div>
+              <h3>Start Condition</h3>
+              <p>
+                The master pulls SDA low while SCL is high to signal the start of communication.
+              </p>
+            </div>
           </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-date">2017 – 2023</div>
-          <div class="timeline-content">
-            <h3>St. Ann's Academy</h3>
-            <p>High School Diploma – Kamloops, BC</p>
+
+          <div class="step">
+            <span class="step-number">2</span>
+            <div>
+              <h3>Address Frame</h3>
+              <p>
+                The master sends the slave address and indicates whether it wants to read or write.
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <span class="step-number">3</span>
+            <div>
+              <h3>Acknowledge Bit</h3>
+              <p>
+                The receiving device pulls SDA low on the ninth clock pulse to confirm receipt.
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <span class="step-number">4</span>
+            <div>
+              <h3>Data Transfer</h3>
+              <p>
+                Data is transferred one byte at a time, with an acknowledge after each byte.
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <span class="step-number">5</span>
+            <div>
+              <h3>Stop Condition</h3>
+              <p>
+                The master releases SDA high while SCL is high to end communication.
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- VOLUNTEER -->
-  <section id="volunteer">
-    <div class="container">
-      <h2>Volunteer</h2>
-      <div class="projects-grid">
-        <div class="project-card">
-          <h3>Sacred Heart Cathedral — Server</h3>
-          <p>Sept 2019 – Jun 2023 — Organized monthly breakfast program for the unhoused; focused on workflow optimization, team cooperation, and resource distribution.</p>
+    <section id="signals" class="section">
+      <div class="container">
+        <h2>Main Signals and Bus Features</h2>
+
+        <div class="card-grid">
+          <div class="card">
+            <h3>SDA</h3>
+            <p>
+              Serial Data line. This carries addresses, control bits, and transferred data.
+            </p>
+          </div>
+          <div class="card">
+            <h3>SCL</h3>
+            <p>
+              Serial Clock line. The master generates the clock to synchronize communication.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Pull-Up Resistors</h3>
+            <p>
+              I²C uses open-drain or open-collector outputs, so pull-up resistors are required
+              to bring the lines high.
+            </p>
+          </div>
+        </div>
+
+        <div class="info-box">
+          <h3>Why are pull-up resistors needed?</h3>
+          <p>
+            Devices on the I²C bus can usually pull the line low, but they do not actively drive it high.
+            The pull-up resistors return SDA and SCL to logic high when no device is pulling them low.
+            This is a key part of how multiple devices safely share the same bus.
+          </p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- AFFILIATIONS -->
-  <section id="affiliations">
-    <div class="container">
-      <h2>Affiliations</h2>
-      <ul>
-        <li>Engineers and Geoscientists BC — Student Member (2024 – Present)</li>
-      </ul>
-    </div>
-  </section>
+    <section class="section alt">
+      <div class="container">
+        <h2>Common I²C Speeds</h2>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Mode</th>
+                <th>Typical Speed</th>
+                <th>Use Case</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Standard Mode</td>
+                <td>100 kbit/s</td>
+                <td>Basic sensors and simple peripherals</td>
+              </tr>
+              <tr>
+                <td>Fast Mode</td>
+                <td>400 kbit/s</td>
+                <td>Common embedded applications</td>
+              </tr>
+              <tr>
+                <td>Fast Mode Plus</td>
+                <td>1 Mbit/s</td>
+                <td>Higher-performance devices</td>
+              </tr>
+              <tr>
+                <td>High-Speed Mode</td>
+                <td>3.4 Mbit/s</td>
+                <td>Specialized high-speed communication</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container">
-      <h2>Contact</h2>
-      <p>If you'd like to get in touch, feel free to email me below.</p>
-      <a href="mailto:johannessteyn05@gmail.com" class="btn">Email Me</a>
-    </div>
-  </section>
+    <section id="advantages" class="section">
+      <div class="container">
+        <h2>Advantages and Limitations</h2>
 
-  <footer>
-    <div class="container">
-      <p>&copy; <span id="year"></span> Johannes Steyn. All rights reserved.</p>
-    </div>
+        <div class="two-column">
+          <div class="card">
+            <h3>Advantages</h3>
+            <ul>
+              <li>Only two signal wires are required</li>
+              <li>Multiple devices can share the same bus</li>
+              <li>Addressing makes device selection simple</li>
+              <li>Widely supported by sensors and microcontrollers</li>
+              <li>Good for short-distance board-level communication</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Limitations</h3>
+            <ul>
+              <li>Slower than SPI in many applications</li>
+              <li>Requires pull-up resistors</li>
+              <li>Bus capacitance limits distance and speed</li>
+              <li>Debugging address conflicts can be tricky</li>
+              <li>Less ideal for very high-speed data transfer</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="uses" class="section alt">
+      <div class="container">
+        <h2>Where is I²C Used?</h2>
+        <div class="card-grid">
+          <div class="card">
+            <h3>Sensors</h3>
+            <p>IMUs, temperature sensors, pressure sensors, and magnetometers often use I²C.</p>
+          </div>
+          <div class="card">
+            <h3>Memory Devices</h3>
+            <p>EEPROMs and configuration storage chips commonly communicate over I²C.</p>
+          </div>
+          <div class="card">
+            <h3>Displays</h3>
+            <p>Small OLED and LCD modules often use I²C to minimize wiring.</p>
+          </div>
+          <div class="card">
+            <h3>Embedded Control Boards</h3>
+            <p>Microcontrollers use I²C to connect low-speed peripherals on the same PCB.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Summary</h2>
+        <p>
+          I²C is one of the most important communication protocols in embedded systems.
+          Its two-wire design, addressing system, and support for many devices make it
+          ideal for sensors and peripheral communication on compact electronic systems.
+        </p>
+        <p>
+          If you understand <strong>SDA, SCL, addressing, start/stop conditions, and pull-up resistors</strong>,
+          you already have a strong foundation in I²C fundamentals.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Embedded Systems Learning Page | I²C Fundamentals</p>
   </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-  <script src="script.js"></script>
 </body>
 </html>
