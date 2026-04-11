@@ -3,282 +3,59 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>I²C Fundamentals | Embedded Communication</title>
+  <meta
+    name="description"
+    content="About Johannes, a UBC mechanical engineering student interested in biomechanics, medical devices, mechatronics, and embedded systems."
+  />
+  <title>Johannes</title>
+  <script>
+    document.documentElement.classList.add('js');
+  </script>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-  <header class="hero">
-    <nav class="navbar">
-      <div class="logo">I²C Fundamentals</div>
-      <ul class="nav-links">
-        <li><a href="#overview">Overview</a></li>
-        <li><a href="#how-it-works">How It Works</a></li>
-        <li><a href="#signals">Signals</a></li>
-        <li><a href="#advantages">Advantages</a></li>
-        <li><a href="#uses">Uses</a></li>
-      </ul>
-    </nav>
+<body data-page="about">
+  <div class="page-wipe" aria-hidden="true"></div>
 
-    <div class="hero-content">
-      <h1>Understanding I²C in Embedded Systems</h1>
-      <p>
-        A simple guide to the Inter-Integrated Circuit protocol:
-        how devices communicate, why pull-up resistors matter,
-        and where I²C is used in real embedded designs.
-      </p>
-      <a href="#overview" class="btn">Start Learning</a>
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="index.html">Johannes</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a class="nav-link is-active" href="index.html" aria-current="page">About</a>
+        <a class="nav-link" href="experience.html">Experience</a>
+        <a class="nav-link" href="portfolio.html">Portfolio</a>
+        <a class="nav-link" href="https://www.linkedin.com/in/johannes-steyn/" target="_blank" rel="noreferrer">LinkedIn</a>
+      </nav>
     </div>
   </header>
 
   <main>
-    <section id="overview" class="section">
-      <div class="container">
-        <h2>What is I²C?</h2>
-        <p>
-          I²C, or Inter-Integrated Circuit, is a synchronous serial communication
-          protocol used for short-distance communication between microcontrollers,
-          sensors, memory chips, displays, and other peripherals.
-        </p>
-        <p>
-          It was designed to let multiple devices communicate using only
-          <strong>two wires</strong>: one for data and one for clock.
-        </p>
-
-        <div class="card-grid">
-          <div class="card">
-            <h3>Two-Wire Bus</h3>
-            <p>
-              I²C uses SDA for data and SCL for clock, reducing wiring complexity.
-            </p>
-          </div>
-          <div class="card">
-            <h3>Master-Slave System</h3>
-            <p>
-              A master device controls communication while slave devices respond
-              to requests using their unique addresses.
-            </p>
-          </div>
-          <div class="card">
-            <h3>Address-Based</h3>
-            <p>
-              Each slave has an address, so multiple devices can share the same bus.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="how-it-works" class="section alt">
-      <div class="container">
-        <h2>How I²C Works</h2>
-        <p>
-          In an I²C system, the master begins communication by generating a
-          <strong>start condition</strong>. It then sends the address of the slave
-          device it wants to talk to, followed by a read or write bit.
-        </p>
-
-        <div class="steps">
-          <div class="step">
-            <span class="step-number">1</span>
-            <div>
-              <h3>Start Condition</h3>
-              <p>
-                The master pulls SDA low while SCL is high to signal the start of communication.
-              </p>
-            </div>
-          </div>
-
-          <div class="step">
-            <span class="step-number">2</span>
-            <div>
-              <h3>Address Frame</h3>
-              <p>
-                The master sends the slave address and indicates whether it wants to read or write.
-              </p>
-            </div>
-          </div>
-
-          <div class="step">
-            <span class="step-number">3</span>
-            <div>
-              <h3>Acknowledge Bit</h3>
-              <p>
-                The receiving device pulls SDA low on the ninth clock pulse to confirm receipt.
-              </p>
-            </div>
-          </div>
-
-          <div class="step">
-            <span class="step-number">4</span>
-            <div>
-              <h3>Data Transfer</h3>
-              <p>
-                Data is transferred one byte at a time, with an acknowledge after each byte.
-              </p>
-            </div>
-          </div>
-
-          <div class="step">
-            <span class="step-number">5</span>
-            <div>
-              <h3>Stop Condition</h3>
-              <p>
-                The master releases SDA high while SCL is high to end communication.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="signals" class="section">
-      <div class="container">
-        <h2>Main Signals and Bus Features</h2>
-
-        <div class="card-grid">
-          <div class="card">
-            <h3>SDA</h3>
-            <p>
-              Serial Data line. This carries addresses, control bits, and transferred data.
-            </p>
-          </div>
-          <div class="card">
-            <h3>SCL</h3>
-            <p>
-              Serial Clock line. The master generates the clock to synchronize communication.
-            </p>
-          </div>
-          <div class="card">
-            <h3>Pull-Up Resistors</h3>
-            <p>
-              I²C uses open-drain or open-collector outputs, so pull-up resistors are required
-              to bring the lines high.
-            </p>
+    <section class="section hero-section">
+      <div class="container about-hero">
+        <div class="portrait-panel reveal is-visible">
+          <div class="portrait-frame">
+            <img src="profile.png" alt="Portrait of Johannes" class="portrait-image" />
           </div>
         </div>
 
-        <div class="info-box">
-          <h3>Why are pull-up resistors needed?</h3>
-          <p>
-            Devices on the I²C bus can usually pull the line low, but they do not actively drive it high.
-            The pull-up resistors return SDA and SCL to logic high when no device is pulling them low.
-            This is a key part of how multiple devices safely share the same bus.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section alt">
-      <div class="container">
-        <h2>Common I²C Speeds</h2>
-        <div class="table-wrapper">
-          <table>
-            <thead>
-              <tr>
-                <th>Mode</th>
-                <th>Typical Speed</th>
-                <th>Use Case</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Standard Mode</td>
-                <td>100 kbit/s</td>
-                <td>Basic sensors and simple peripherals</td>
-              </tr>
-              <tr>
-                <td>Fast Mode</td>
-                <td>400 kbit/s</td>
-                <td>Common embedded applications</td>
-              </tr>
-              <tr>
-                <td>Fast Mode Plus</td>
-                <td>1 Mbit/s</td>
-                <td>Higher-performance devices</td>
-              </tr>
-              <tr>
-                <td>High-Speed Mode</td>
-                <td>3.4 Mbit/s</td>
-                <td>Specialized high-speed communication</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <section id="advantages" class="section">
-      <div class="container">
-        <h2>Advantages and Limitations</h2>
-
-        <div class="two-column">
-          <div class="card">
-            <h3>Advantages</h3>
-            <ul>
-              <li>Only two signal wires are required</li>
-              <li>Multiple devices can share the same bus</li>
-              <li>Addressing makes device selection simple</li>
-              <li>Widely supported by sensors and microcontrollers</li>
-              <li>Good for short-distance board-level communication</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3>Limitations</h3>
-            <ul>
-              <li>Slower than SPI in many applications</li>
-              <li>Requires pull-up resistors</li>
-              <li>Bus capacitance limits distance and speed</li>
-              <li>Debugging address conflicts can be tricky</li>
-              <li>Less ideal for very high-speed data transfer</li>
-            </ul>
+        <div class="about-summary-card reveal delay-1">
+          <h1>Hey, my name is Johannes. I study mechanical engineering at UBC and love robotics, healthcare, and sunlight!</h1>
+          <p class="hero-note">This is me soaking up the rays.</p>
+          <div class="button-row">
+            <a class="button" href="experience.html">Experience</a>
+            <a class="button" href="portfolio.html">Portfolio</a>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section id="uses" class="section alt">
-      <div class="container">
-        <h2>Where is I²C Used?</h2>
-        <div class="card-grid">
-          <div class="card">
-            <h3>Sensors</h3>
-            <p>IMUs, temperature sensors, pressure sensors, and magnetometers often use I²C.</p>
-          </div>
-          <div class="card">
-            <h3>Memory Devices</h3>
-            <p>EEPROMs and configuration storage chips commonly communicate over I²C.</p>
-          </div>
-          <div class="card">
-            <h3>Displays</h3>
-            <p>Small OLED and LCD modules often use I²C to minimize wiring.</p>
-          </div>
-          <div class="card">
-            <h3>Embedded Control Boards</h3>
-            <p>Microcontrollers use I²C to connect low-speed peripherals on the same PCB.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <h2>Summary</h2>
-        <p>
-          I²C is one of the most important communication protocols in embedded systems.
-          Its two-wire design, addressing system, and support for many devices make it
-          ideal for sensors and peripheral communication on compact electronic systems.
-        </p>
-        <p>
-          If you understand <strong>SDA, SCL, addressing, start/stop conditions, and pull-up resistors</strong>,
-          you already have a strong foundation in I²C fundamentals.
-        </p>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <p>Embedded Systems Learning Page | I²C Fundamentals</p>
+  <footer class="site-footer">
+    <div class="container footer-shell">
+      <p>Johannes</p>
+      <p><span id="year"></span></p>
+    </div>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

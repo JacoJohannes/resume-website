@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Experience page for Johannes highlighting construction project support, reliability engineering, and embedded systems work."
+  />
+  <title>Experience | Johannes</title>
+  <script>
+    document.documentElement.classList.add('js');
+  </script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="experience">
+  <div class="page-wipe" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="index.html">Johannes</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a class="nav-link" href="index.html">About</a>
+        <a class="nav-link is-active" href="experience.html" aria-current="page">Experience</a>
+        <a class="nav-link" href="portfolio.html">Portfolio</a>
+        <a class="nav-link" href="https://www.linkedin.com/in/johannes-steyn/" target="_blank" rel="noreferrer">LinkedIn</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <section class="container page-title">
+      <h1>Experience</h1>
+    </section>
+
+    <div class="container experience-list">
+      <article class="experience-card">
+        <div class="experience-meta">
+          <span>Student design team</span>
+          <span>Vancouver, BC</span>
+        </div>
+        <h2>Mechatronics Engineer, UBC Rocket - TVR</h2>
+        <ul>
+          <li>Designed a 3-DOF gimbal test stand with continuous roll freedom, absolute magnetic encoders, and bare-metal STM32 firmware streaming timestamped telemetry over UART for rocket flight controller validation and PID tuning, using machining, 3D printing, and rapid prototyping.</li>
+          <li>Built a reusable embedded C driver stack for the STM32 flight controller, implementing SPI sensor integration for real-time data acquisition on a shared bus architecture.</li>
+          <li>Identified magnetometer calibration inconsistencies affecting flight orientation accuracy and developed test procedures to validate sensor reading consistency under operating conditions, ensuring reliable real-time orientation data for closed-loop flight control.</li>
+        </ul>
+      </article>
+
+      <article class="experience-card">
+        <div class="experience-meta">
+          <span>Construction</span>
+          <span>January 2026 - Present</span>
+          <span>Vancouver, BC</span>
+        </div>
+        <h2>Engineering Co-op Student, PCL Constructors Westcoast Inc.</h2>
+        <ul>
+          <li>Drafted a phasing plan for a $1M project, coordinating trade sequencing and schedule milestones using Primavera P6.</li>
+          <li>Supported project management operations on a $25M project, assisting with RFIs, submittals, and trade coordination across multiple sub-trades.</li>
+        </ul>
+      </article>
+
+      <article class="experience-card">
+        <div class="experience-meta">
+          <span>Reliability</span>
+          <span>May 2025 - August 2025</span>
+          <span>Kamloops, BC</span>
+        </div>
+        <h2>Reliability Engineering Intern, BTA Group</h2>
+        <ul>
+          <li>Diagnosed recurring failure modes across 30-plus motors, pumps, and conveyors, executing vibration diagnostics and root cause analysis using SKF @ptitude to reduce unplanned downtime by about 20%.</li>
+          <li>Developed FMEAs for a critical equipment program to assess failure risks, identify failure modes, and recommend corrective actions to improve system reliability and safety.</li>
+          <li>Designed process monitoring layouts and diagnostic schematics for more than 50 machines using SKF @ptitude, reducing diagnostic time by about 25% and improving client documentation quality.</li>
+        </ul>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-shell">
+      <p>Experience</p>
+      <p><span id="year"></span></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
