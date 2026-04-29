@@ -550,6 +550,10 @@ a {
   background: var(--surface-soft);
 }
 
+.project-media-swing img {
+  object-fit: contain;
+}
+
 .project-media-contain {
   padding: 1rem;
   background: linear-gradient(180deg, #fcfaf6 0%, #f4ede4 100%);
