@@ -171,8 +171,8 @@ a {
 }
 
 .about-hero {
-  grid-template-columns: minmax(360px, 1.1fr) minmax(280px, 0.72fr);
-  align-items: stretch;
+  grid-template-columns: minmax(150px, 210px) minmax(280px, 1fr);
+  align-items: center;
 }
 
 .page-grid,
@@ -620,7 +620,7 @@ a {
   }
 
   .portrait-panel {
-    max-width: 28rem;
+    max-width: 13rem;
   }
 
   .about-summary-card p:not(.eyebrow) {
