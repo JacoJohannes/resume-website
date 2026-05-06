@@ -330,6 +330,25 @@ a {
   max-width: 30ch;
 }
 
+.values-list {
+  margin-top: 0.25rem;
+}
+
+.values-list h2 {
+  margin-bottom: 0.45rem;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.values-list ul {
+  display: grid;
+  gap: 0.35rem;
+  padding-left: 1.1rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
 .hero-note {
   position: relative;
   max-width: 24ch;
@@ -448,7 +467,6 @@ a {
 .preview-grid,
 .portfolio-grid,
 .process-grid,
-.values-grid,
 .notes-grid {
   display: grid;
   gap: 1rem;
@@ -499,8 +517,7 @@ a {
 }
 
 .portfolio-grid,
-.process-grid,
-.values-grid {
+.process-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
@@ -604,8 +621,7 @@ a {
   .about-hero,
   .preview-grid,
   .portfolio-grid,
-  .process-grid,
-  .values-grid {
+  .process-grid {
     grid-template-columns: 1fr;
   }
 
