@@ -234,6 +234,15 @@ a {
   object-position: center top;
 }
 
+.portrait-caption {
+  margin-top: 0.85rem;
+  color: var(--muted);
+  font-size: 1rem;
+  font-style: italic;
+  line-height: 1.7;
+  text-align: center;
+}
+
 .hero-copy,
 .about-summary-card,
 .feature-panel,
