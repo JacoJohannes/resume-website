@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HEDE5BHJ15"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HEDE5BHJ15');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="E Bike Battery Pack project by Johannes, including pack architecture, electrical protection, enclosure design, and testing focus."
+  />
+  <title>E Bike Battery Pack | Johannes</title>
+  <script>
+    document.documentElement.classList.add('js');
+  </script>
+  <link rel="stylesheet" href="style.css?v=20260516" />
+</head>
+<body data-page="portfolio">
+  <div class="page-wipe" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="index.html">Johannes</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a class="nav-link" href="index.html">About</a>
+        <a class="nav-link is-active" href="portfolio.html" aria-current="page">Portfolio</a>
+        <a class="nav-link" href="https://www.linkedin.com/in/johannes-steyn/" target="_blank" rel="noreferrer">LinkedIn</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section project-page">
+    <section class="container project-top-actions reveal is-visible">
+      <a class="button button-secondary" href="portfolio.html">Back to Portfolio</a>
+    </section>
+
+    <section class="container project-detail">
+      <div class="project-detail-media project-detail-media-battery reveal is-visible">
+        <img src="Images/Battery Pack image.jpeg" alt="E Bike Battery Pack project" />
+      </div>
+
+      <div class="project-detail-copy reveal delay-1">
+        <div class="project-copy-main">
+          <span class="project-type">Personal</span>
+          <h1>E Bike Battery Pack</h1>
+          <p>
+            A custom battery pack project focused on packaging lithium-ion cells into a practical,
+            serviceable system for an electric bike, with attention to electrical protection,
+            mechanical restraint, and thermal awareness.
+          </p>
+        </div>
+
+        <div class="tag-list">
+          <span>Battery Systems</span>
+          <span>CAD</span>
+          <span>Electronics</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="container process-grid">
+      <article class="process-card reveal">
+        <h3>What I Did</h3>
+        <p>
+          I designed and built an e-bike battery pack using 18650 cells, with a focus on clean
+          packaging, service access, and reliable integration into the bike.
+        </p>
+      </article>
+
+      <article class="process-card reveal delay-1">
+        <h3>Why I Did It</h3>
+        <p>
+          E-bike batteries are expensive, so why not build one? The project gave me a practical way
+          to learn pack design while making something useful.
+        </p>
+      </article>
+
+      <article class="process-card reveal delay-2">
+        <h3>How I Did It</h3>
+        <p>
+          I balanced cell layout, current paths, BMS wiring, insulation, and enclosure geometry so
+          the pack could be assembled, inspected, and protected during use.
+        </p>
+      </article>
+    </section>
+
+    <section class="container project-visual-section reveal">
+      <div class="project-visual-copy">
+        <h2>Battery Pack Optimizer GUI</h2>
+        <p>
+          I also built a Python GUI to organize measured cells into balanced pack groups,
+          check voltage spread, visualize the layout, and export the results for assembly.
+          More information can be found in the report below.
+        </p>
+      </div>
+      <div class="project-visual-media project-visual-media-bare">
+        <img class="optimizer-gui-image" src="Images/PackPythonGUI.jpeg" alt="Battery Pack Python GUI screenshot" loading="lazy" decoding="async" />
+      </div>
+    </section>
+
+    <section class="container embedded-report-section reveal">
+      <div class="embedded-report-header">
+        <div>
+          <h2>Battery Pack Optimizer Report</h2>
+        </div>
+        <a class="button button-secondary" href="battery_pack_project_report%20copy.html">Open Full Report</a>
+      </div>
+      <div class="embedded-report-frame">
+        <iframe
+          src="battery_pack_project_report%20copy.html"
+          title="Battery Pack Optimizer Project Report"
+          loading="lazy"
+        ></iframe>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="button-row">
+        <a class="button button-secondary" href="portfolio.html">Back to Portfolio</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-shell">
+      <p>Portfolio</p>
+      <p><span id="year"></span></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

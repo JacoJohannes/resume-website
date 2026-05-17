@@ -19,7 +19,7 @@
   <script>
     document.documentElement.classList.add('js');
   </script>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=20260516" />
 </head>
 <body data-page="portfolio">
   <div class="page-wipe" aria-hidden="true"></div>
@@ -29,7 +29,6 @@
       <a class="brand" href="index.html">Johannes</a>
       <nav class="site-nav" aria-label="Primary">
         <a class="nav-link" href="index.html">About</a>
-        <a class="nav-link" href="experience.html">Experience</a>
         <a class="nav-link is-active" href="portfolio.html" aria-current="page">Portfolio</a>
         <a class="nav-link" href="https://www.linkedin.com/in/johannes-steyn/" target="_blank" rel="noreferrer">LinkedIn</a>
       </nav>
@@ -42,6 +41,44 @@
     </section>
 
     <div class="container portfolio-grid">
+      <a class="project-card project-card-link reveal is-visible" href="e-bike-battery-pack.html" aria-label="Open E Bike Battery Pack project details">
+        <div class="project-media project-media-photo project-media-battery" aria-label="Photo of the E Bike Battery Pack project">
+          <img src="Images/Battery Pack.jpeg" alt="E Bike Battery Pack project" loading="lazy" decoding="async" />
+        </div>
+        <span class="project-type">Personal</span>
+        <h2>E Bike Battery Pack</h2>
+        <p>
+          A custom lithium-ion battery pack project for an electric bike, focused on safe
+          packaging, protection circuitry, and a serviceable enclosure.
+        </p>
+        <div class="tag-list">
+          <span>Battery Systems</span>
+          <span>CAD</span>
+          <span>Electronics</span>
+        </div>
+      </a>
+
+      <div class="portfolio-subtitle reveal">
+        <h2>Highlights</h2>
+      </div>
+
+      <article class="project-card reveal">
+        <div class="project-media project-media-photo optimizer-gui-media" aria-label="Screenshot of the Battery Pack Python GUI">
+          <img class="optimizer-gui-image" src="Images/PackPythonGUI.jpeg" alt="Battery Pack Python GUI screenshot" loading="lazy" decoding="async" />
+        </div>
+        <span class="project-type">Personal</span>
+        <h2>Battery Pack Optimizer GUI</h2>
+        <p>
+          A desktop tool for sorting measured 18650 cells into balanced battery pack groups,
+          with safety checks, pack visualization, and Excel export.
+        </p>
+        <div class="tag-list">
+          <span>Python</span>
+          <span>PySide6</span>
+          <span>Optimization</span>
+        </div>
+      </article>
+
       <article class="project-card reveal">
         <div class="project-media project-media-photo project-media-swing" aria-label="Photo of the self-supporting swing project">
           <img src="Images/Swing.jpeg" alt="Self-supporting swing built for my niece" loading="lazy" decoding="async" />
@@ -76,7 +113,7 @@
       </article>
 
       <article class="project-card reveal delay-1">
-        <div class="project-media project-media-photo project-media-contain" aria-label="CAD render of the 3-DOF gimbal test stand project">
+        <div class="project-media project-media-photo project-media-fit-white" aria-label="CAD render of the 3-DOF gimbal test stand project">
           <img src="assets/projects/gimbal-test-stand.png" alt="CAD render of the 3-DOF gimbal test stand" loading="lazy" decoding="async" />
         </div>
         <span class="project-type">UBC Rocket</span>
@@ -93,7 +130,7 @@
       </article>
 
       <article class="project-card reveal delay-2">
-        <div class="project-media project-media-photo project-media-contain" aria-label="Python dashboard for thrust stand analysis">
+        <div class="project-media project-media-photo project-media-fit-white" aria-label="Python dashboard for thrust stand analysis">
           <img src="Images/Python Dashboard.jpeg" alt="PySide6 and Matplotlib dashboard for thrust stand sweep analysis" loading="lazy" decoding="async" />
         </div>
         <span class="project-type">UBC Rocket</span>
@@ -111,7 +148,7 @@
       </article>
 
       <article class="project-card reveal delay-2">
-        <div class="project-media project-media-photo project-media-contain" aria-label="CAD render of the inverted pendulum wheel project">
+        <div class="project-media project-media-photo project-media-fit-white" aria-label="CAD render of the inverted pendulum wheel project">
           <img src="assets/projects/inverted-pendulum-wheel.png" alt="CAD render of the inverted pendulum wheel assembly" loading="lazy" decoding="async" />
         </div>
         <span class="project-type">Personal</span>
@@ -128,7 +165,7 @@
       </article>
 
       <article class="project-card reveal delay-2">
-        <div class="project-media project-media-photo project-media-contain" aria-label="Layout drawing for the process monitoring project">
+        <div class="project-media project-media-photo project-media-fit-white" aria-label="Layout drawing for the process monitoring project">
           <img src="assets/projects/process-monitoring-layout.png" alt="Mechanical layout drawing for the process monitoring project" loading="lazy" decoding="async" />
         </div>
         <span class="project-type">Internship</span>
@@ -146,7 +183,7 @@
       </article>
 
       <article class="project-card reveal delay-1">
-        <div class="project-media project-media-photo project-media-contain" aria-label="Circuit layout for the distance sensor project">
+        <div class="project-media project-media-photo project-media-fit-white" aria-label="Circuit layout for the distance sensor project">
           <img src="assets/projects/distance-sensor-photo.jpg" alt="Circuit diagram and breadboard layout for the distance sensor project" loading="lazy" decoding="async" />
         </div>
         <span class="project-type">MECH 368</span>
