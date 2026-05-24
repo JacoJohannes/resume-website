@@ -1069,7 +1069,8 @@ a {
   }
 
   .embedded-simulation-frame {
-    min-height: 38rem;
+    height: 72rem;
+    min-height: 46rem;
   }
 
   .about-hero {
