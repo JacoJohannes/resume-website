@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HEDE5BHJ15"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HEDE5BHJ15');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="3-DOF Gimbal Test Stand project by Johannes, including the mechanical frame, encoder integration, and control testing for a TVC rocket."
+  />
+  <title>3-DOF Gimbal Test Stand | Johannes</title>
+  <script>
+    document.documentElement.classList.add('js');
+  </script>
+  <link rel="stylesheet" href="style.css?v=20260525" />
+</head>
+<body data-page="portfolio">
+  <div class="page-wipe" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="index.html">Johannes</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a class="nav-link" href="index.html">About</a>
+        <a class="nav-link is-active" href="portfolio.html" aria-current="page">Portfolio</a>
+        <a class="nav-link" href="https://www.linkedin.com/in/johannes-steyn/" target="_blank" rel="noreferrer">LinkedIn</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section project-page">
+    <section class="container project-top-actions reveal is-visible">
+      <a class="button button-secondary" href="portfolio.html">Back to Portfolio</a>
+    </section>
+
+    <section class="container project-detail">
+      <div class="project-detail-media reveal is-visible">
+        <img src="assets/projects/gimbal-test-stand.png" alt="CAD render of the 3-DOF gimbal test stand" />
+      </div>
+
+      <div class="project-detail-copy reveal delay-1">
+        <div class="project-copy-main">
+          <span class="project-type">UBC Rocket</span>
+          <h1>3-DOF Gimbal Test Stand</h1>
+          <p>
+            A test fixture for validating a thrust vector control gimbal before flight hardware
+            integration, built around a rigid aluminum extrusion frame, a suspended vehicle
+            assembly, and magnetic encoder feedback.
+          </p>
+        </div>
+
+        <div class="tag-list">
+          <span>Machining</span>
+          <span>CAD</span>
+          <span>GD&amp;T</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="container process-grid">
+      <article class="process-card reveal">
+        <h3>What I Did</h3>
+        <p>
+          I designed and helped build a 3-DOF gimbal stand that lets the rocket team mount a
+          TVC test article, measure angular motion, and safely run control experiments on the
+          bench.
+        </p>
+      </article>
+
+      <article class="process-card reveal delay-1">
+        <h3>Why I Did It</h3>
+        <p>
+          The team needed a controlled way to tune PID behavior and verify gimbal response
+          without depending on full-system testing or risking flight hardware during early
+          iteration.
+        </p>
+      </article>
+
+      <article class="process-card reveal delay-2">
+        <h3>How I Did It</h3>
+        <p>
+          I balanced frame stiffness, access for wiring and electronics, encoder placement,
+          and manufacturable brackets so the stand could be assembled, adjusted, and used
+          repeatedly during controls testing.
+        </p>
+      </article>
+    </section>
+
+    <section class="container project-visual-section reveal">
+      <div class="project-visual-copy">
+        <h2>Built for Controls Iteration</h2>
+        <p>
+          The stand supports physical PID tuning by giving the gimbal room to move across three
+          rotational degrees of freedom while keeping the test setup inspectable. Magnetic
+          encoders provide position feedback for comparing commanded motion against measured
+          response.
+        </p>
+      </div>
+      <div class="project-visual-media">
+        <img src="Images/Test Stand.jpeg" alt="Assembled 3-DOF gimbal test stand during controls testing" loading="lazy" decoding="async" />
+      </div>
+    </section>
+
+    <section class="container project-visual-section project-visual-section-flip reveal">
+      <div class="project-visual-copy">
+        <h2>Encoder Integration</h2>
+        <p>
+          Stand after soldering outermost encoder. The bracket holds the sensor in a repeatable
+          position on the frame while the wiring routes back toward the electronics stack, giving
+          the controls team clean angular feedback during bench testing.
+        </p>
+      </div>
+      <div class="project-visual-media project-visual-media-photo project-visual-media-tall">
+        <img src="Images/Encoder bracket.png" alt="Outermost encoder bracket and soldered encoder wiring on the gimbal test stand" loading="lazy" decoding="async" />
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="button-row">
+        <a class="button button-secondary" href="portfolio.html">Back to Portfolio</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-shell">
+      <p>Portfolio</p>
+      <p><span id="year"></span></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

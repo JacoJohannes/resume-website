@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HEDE5BHJ15"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HEDE5BHJ15');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Self-supporting swing project by Johannes, including design goals, materials, and build approach."
+  />
+  <title>Self-Supporting Swing | Johannes</title>
+  <script>
+    document.documentElement.classList.add('js');
+  </script>
+  <link rel="stylesheet" href="style.css?v=20260525" />
+</head>
+<body data-page="portfolio">
+  <div class="page-wipe" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="index.html">Johannes</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a class="nav-link" href="index.html">About</a>
+        <a class="nav-link is-active" href="portfolio.html" aria-current="page">Portfolio</a>
+        <a class="nav-link" href="https://www.linkedin.com/in/johannes-steyn/" target="_blank" rel="noreferrer">LinkedIn</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section project-page">
+    <section class="container project-top-actions reveal is-visible">
+      <a class="button button-secondary" href="portfolio.html">Back to Portfolio</a>
+    </section>
+
+    <section class="container project-detail">
+      <div class="project-detail-media reveal is-visible">
+        <img src="Images/Swing.jpeg" alt="Self-supporting swing built for my niece" />
+      </div>
+
+      <div class="project-detail-copy reveal delay-1">
+        <div class="project-copy-main">
+          <span class="project-type">Personal</span>
+          <h1>Self-Supporting Swing for My Niece</h1>
+          <p>
+            A sturdy backyard swing built as a practical design project and a gift. The goal was
+            simple: make something safe, durable, and genuinely useful for someone I love.
+          </p>
+        </div>
+
+        <div class="tag-list">
+          <span>Machining</span>
+          <span>Woodworking</span>
+          <span>Design Build</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="container process-grid">
+      <article class="process-card reveal">
+        <h3>Design Goal</h3>
+        <p>
+          Build a self-supporting frame that could handle real outdoor use while staying simple enough
+          to assemble, inspect, and maintain.
+        </p>
+      </article>
+
+      <article class="process-card reveal delay-1">
+        <h3>Engineering Focus</h3>
+        <p>
+          I prioritized stability, load paths, fastener selection, and conservative sizing so the
+          swing would feel solid in regular outdoor use.
+        </p>
+      </article>
+
+      <article class="process-card reveal delay-2">
+        <h3>What I Learned</h3>
+        <p>
+          This project sharpened my sense for designing around real people, not just calculations:
+          the best build is one that feels trustworthy when someone actually uses it.
+        </p>
+      </article>
+    </section>
+
+    <section class="container embedded-simulation-section reveal">
+      <div class="embedded-simulation-copy">
+        <h2>Digital Twin Simulation</h2>
+        <p>
+          I also built a swing-set digital twin to visualize seat motion, chain tension,
+          beam stress, and deflection under different loading conditions.
+        </p>
+      </div>
+      <div class="embedded-simulation-frame">
+        <iframe
+          src="dist/public/index.html"
+          title="Swing set digital twin simulation"
+          loading="lazy"
+        ></iframe>
+      </div>
+    </section>
+
+    <section class="container project-visual-section project-visual-section-flip reveal">
+      <div class="project-visual-copy">
+        <h2>Finished Frame</h2>
+        <p>
+          The completed frame uses a wide stance and diagonal bracing to keep the swing stable
+          without needing a permanent structure. It is simple, inspectable, and easy to move or
+          maintain if the backyard layout changes.
+        </p>
+      </div>
+      <div class="project-visual-media project-visual-media-photo">
+        <img src="Images/Finishedframe.png" alt="Finished self-supporting wooden swing frame during assembly" loading="lazy" decoding="async" />
+      </div>
+    </section>
+
+    <section class="container project-visual-section reveal">
+      <div class="project-visual-copy">
+        <h2>Best Design Review</h2>
+        <p>
+          The nicest part of the project was seeing it used by the person it was built for. This
+          photo is a good reminder that practical engineering can still be personal, playful, and
+          very worth overbuilding a little.
+        </p>
+      </div>
+      <div class="project-visual-media project-visual-media-photo project-visual-media-tall">
+        <img src="Images/Happy Neice.png" alt="My niece smiling in the swing" loading="lazy" decoding="async" />
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="button-row">
+        <a class="button button-secondary" href="portfolio.html">Back to Portfolio</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-shell">
+      <p>Portfolio</p>
+      <p><span id="year"></span></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

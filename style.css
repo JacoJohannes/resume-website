@@ -648,6 +648,47 @@ a {
   margin-bottom: 0;
 }
 
+.embedded-simulation-section {
+  display: grid;
+  gap: 1rem;
+}
+
+.embedded-simulation-copy {
+  max-width: 44rem;
+}
+
+.embedded-simulation-copy h2 {
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+  font-size: clamp(1.9rem, 3vw, 2.7rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.65rem;
+}
+
+.embedded-simulation-copy p {
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.78;
+}
+
+.embedded-simulation-frame {
+  height: min(72vh, 40rem);
+  min-height: 34rem;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: #050810;
+  box-shadow: var(--shadow);
+}
+
+.embedded-simulation-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
 .embedded-report-header {
   display: flex;
   align-items: flex-end;
@@ -684,7 +725,7 @@ a {
 
 .project-visual-section {
   display: grid;
-  grid-template-columns: minmax(210px, 0.32fr) minmax(0, 0.92fr);
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.82fr);
   gap: 1.5rem;
   align-items: stretch;
 }
@@ -701,13 +742,13 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: clamp(2rem, 5vw, 4.5rem);
-  padding: 1.45rem;
+  gap: clamp(1.1rem, 2.4vw, 2rem);
+  padding: clamp(1.45rem, 2.5vw, 2rem);
 }
 
 .project-visual-copy h2 {
   font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
-  font-size: clamp(1.65rem, 2.15vw, 2.05rem);
+  font-size: clamp(1.9rem, 3vw, 2.55rem);
   font-weight: 500;
   line-height: 1.12;
   letter-spacing: -0.03em;
@@ -715,16 +756,19 @@ a {
 
 .project-visual-copy p {
   color: var(--muted);
-  font-size: 1.09rem;
-  line-height: 1.82;
+  font-size: clamp(1.08rem, 1.35vw, 1.18rem);
+  line-height: 1.78;
 }
 
 .project-visual-media {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 32rem;
-  padding: 0.45rem;
+  width: 100%;
+  min-height: 0;
+  max-height: 22rem;
+  aspect-ratio: 4 / 3;
+  padding: 0.65rem;
   overflow: hidden;
   background: var(--surface);
 }
@@ -737,6 +781,7 @@ a {
   border-radius: var(--radius-lg);
   overflow: hidden;
   min-height: auto;
+  max-height: none;
   max-width: 46rem;
   justify-self: end;
   aspect-ratio: 2498 / 1636;
@@ -748,6 +793,68 @@ a {
   object-fit: contain;
   border-radius: calc(var(--radius-lg) - 4px);
   overflow: hidden;
+}
+
+.project-visual-section-flip {
+  grid-template-columns: minmax(260px, 0.82fr) minmax(0, 1fr);
+}
+
+.project-visual-section-flip .project-visual-copy {
+  order: 2;
+}
+
+.project-visual-section-flip .project-visual-media {
+  order: 1;
+}
+
+.project-visual-media-photo img {
+  object-fit: cover;
+}
+
+.project-visual-media-tall {
+  max-height: 24rem;
+  aspect-ratio: 3 / 4;
+}
+
+.project-image-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(170px, 230px));
+  justify-content: center;
+  gap: 1rem;
+  align-items: start;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.project-image-strip figure {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.project-image-strip-frame {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: #ffffff;
+  box-shadow: 0 10px 24px rgba(24, 18, 10, 0.06);
+  aspect-ratio: 16 / 10;
+  padding: 0.4rem;
+}
+
+.project-image-strip-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: calc(var(--radius-md) - 6px);
+}
+
+.project-image-strip-caption {
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-style: italic;
+  line-height: 1.4;
+  text-align: center;
 }
 
 .optimizer-gui-media {
@@ -946,13 +1053,23 @@ a {
   .project-visual-section,
   .preview-grid,
   .portfolio-grid,
-  .process-grid {
+  .process-grid,
+  .project-image-strip {
     grid-template-columns: 1fr;
+  }
+
+  .project-visual-section-flip .project-visual-copy,
+  .project-visual-section-flip .project-visual-media {
+    order: initial;
   }
 
   .embedded-report-header {
     display: grid;
     align-items: stretch;
+  }
+
+  .embedded-simulation-frame {
+    min-height: 38rem;
   }
 
   .about-hero {
