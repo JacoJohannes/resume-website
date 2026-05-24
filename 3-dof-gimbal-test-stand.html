@@ -19,7 +19,7 @@
   <script>
     document.documentElement.classList.add('js');
   </script>
-  <link rel="stylesheet" href="style.css?v=20260525" />
+  <link rel="stylesheet" href="style.css?v=20260526-gimbal-rounded" />
 </head>
 <body data-page="portfolio">
   <div class="page-wipe" aria-hidden="true"></div>
@@ -93,6 +93,37 @@
       </article>
     </section>
 
+    <section class="container gimbal-cad-section reveal" aria-labelledby="gimbal-cad-title">
+      <div
+        class="gimbal-cad-viewer"
+        data-gimbal-cad
+        data-model-src="assets/models/gimbal-test-stand/gimbal-test-stand.gltf"
+        data-fallback-src="assets/projects/gimbal-test-stand.png"
+      >
+        <div class="gimbal-cad-stage">
+          <canvas class="gimbal-cad-canvas" aria-label="Interactive CAD model of the 3-DOF gimbal test stand"></canvas>
+          <img class="gimbal-cad-fallback" src="assets/projects/gimbal-test-stand.png" alt="CAD render of the 3-DOF gimbal test stand" loading="lazy" decoding="async" />
+          <div class="gimbal-cad-loading">Loading CAD assembly...</div>
+        </div>
+
+        <div class="gimbal-cad-panel">
+          <div class="gimbal-cad-title">
+            <span class="project-type">Interactive CAD</span>
+            <h2 id="gimbal-cad-title">3-DOF Gimbal Test Stand</h2>
+            <p>Thrust vector control bench-test fixture</p>
+          </div>
+
+          <div class="gimbal-cad-controls" aria-label="CAD viewer controls">
+            <button type="button" data-cad-reset>Reset View</button>
+          </div>
+
+          <p class="gimbal-cad-caption" data-cad-caption>
+            Drag to rotate the Onshape-exported CAD assembly. Scroll or pinch to zoom.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <section class="container project-visual-section reveal">
       <div class="project-visual-copy">
         <h2>Built for Controls Iteration</h2>
@@ -103,7 +134,7 @@
           response.
         </p>
       </div>
-      <div class="project-visual-media">
+      <div class="project-visual-media project-visual-media-photo project-visual-media-rounded">
         <img src="Images/Test Stand.jpeg" alt="Assembled 3-DOF gimbal test stand during controls testing" loading="lazy" decoding="async" />
       </div>
     </section>
@@ -137,5 +168,6 @@
   </footer>
 
   <script src="script.js"></script>
+  <script src="gimbal-cad-viewer.js?v=20260526-gimbal-explore"></script>
 </body>
 </html>

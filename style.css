@@ -689,6 +689,144 @@ a {
   border: 0;
 }
 
+.gimbal-cad-section {
+  display: grid;
+  gap: 1rem;
+}
+
+.gimbal-cad-viewer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(17rem, 0.34fr);
+  min-height: 34rem;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(circle at 38% 18%, rgba(134, 160, 205, 0.18), transparent 32%),
+    linear-gradient(145deg, #151a22 0%, #090d13 74%);
+  box-shadow: var(--shadow);
+}
+
+.gimbal-cad-stage {
+  position: relative;
+  min-height: 34rem;
+  overflow: hidden;
+}
+
+.gimbal-cad-canvas,
+.gimbal-cad-fallback,
+.gimbal-cad-loading {
+  position: absolute;
+  inset: 0;
+}
+
+.gimbal-cad-canvas,
+.gimbal-cad-fallback {
+  width: 100%;
+  height: 100%;
+}
+
+.gimbal-cad-canvas {
+  display: block;
+  touch-action: none;
+}
+
+.gimbal-cad-fallback {
+  display: none;
+  object-fit: contain;
+  padding: 1rem;
+  background: #ffffff;
+}
+
+.gimbal-cad-loading {
+  display: grid;
+  place-items: center;
+  color: rgba(244, 247, 251, 0.72);
+  font-size: 0.92rem;
+  background: rgba(9, 13, 19, 0.72);
+  transition: opacity 180ms ease, visibility 180ms ease;
+}
+
+.gimbal-cad-viewer.is-loaded .gimbal-cad-loading {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.gimbal-cad-viewer.is-fallback .gimbal-cad-fallback {
+  display: block;
+}
+
+.gimbal-cad-viewer.is-fallback .gimbal-cad-canvas {
+  display: none;
+}
+
+.gimbal-cad-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.2rem;
+  padding: clamp(1.15rem, 2.2vw, 1.75rem);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  color: #f6f8fb;
+  background: rgba(12, 16, 23, 0.76);
+  backdrop-filter: blur(18px);
+}
+
+.gimbal-cad-title {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.gimbal-cad-title h2 {
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+  font-size: clamp(1.85rem, 3vw, 2.55rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+
+.gimbal-cad-title p,
+.gimbal-cad-caption {
+  color: rgba(226, 232, 240, 0.74);
+  line-height: 1.65;
+}
+
+.gimbal-cad-caption {
+  min-height: 6.1rem;
+  margin-top: auto;
+  font-size: 0.96rem;
+}
+
+.gimbal-cad-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.gimbal-cad-controls button {
+  min-height: 2.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  padding: 0.58rem 0.8rem;
+  color: rgba(246, 248, 251, 0.82);
+  background: rgba(255, 255, 255, 0.07);
+  font: inherit;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, color 180ms ease;
+}
+
+.gimbal-cad-controls button:hover,
+.gimbal-cad-controls button:focus-visible {
+  color: #ffffff;
+  border-color: rgba(141, 181, 255, 0.68);
+  background: rgba(94, 137, 211, 0.28);
+}
+
+.gimbal-cad-controls button:active {
+  transform: translateY(1px);
+}
+
 .embedded-report-header {
   display: flex;
   align-items: flex-end;
@@ -809,6 +947,15 @@ a {
 
 .project-visual-media-photo img {
   object-fit: cover;
+}
+
+.project-visual-media-rounded {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.project-visual-media-rounded img {
+  border-radius: calc(var(--radius-lg) - 8px);
 }
 
 .project-visual-media-tall {
@@ -1049,6 +1196,7 @@ a {
 @media (max-width: 980px) {
   .about-hero,
   .project-detail,
+  .gimbal-cad-viewer,
   .embedded-report-header,
   .project-visual-section,
   .preview-grid,
@@ -1071,6 +1219,19 @@ a {
   .embedded-simulation-frame {
     height: 72rem;
     min-height: 46rem;
+  }
+
+  .gimbal-cad-viewer {
+    min-height: auto;
+  }
+
+  .gimbal-cad-stage {
+    min-height: 28rem;
+  }
+
+  .gimbal-cad-panel {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 0;
   }
 
   .about-hero {
@@ -1141,6 +1302,7 @@ a {
   .hero-copy,
   .about-summary-card,
   .project-detail-copy,
+  .gimbal-cad-panel,
   .feature-panel,
   .panel-card,
   .experience-card,
@@ -1160,6 +1322,22 @@ a {
 
   .button {
     width: 100%;
+  }
+
+  .gimbal-cad-stage {
+    min-height: 22rem;
+  }
+
+  .gimbal-cad-title h2 {
+    overflow-wrap: anywhere;
+  }
+
+  .gimbal-cad-caption {
+    min-height: auto;
+  }
+
+  .gimbal-cad-controls button {
+    flex: 1 1 auto;
   }
 
   .footer-shell {
