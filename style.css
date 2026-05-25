@@ -654,7 +654,12 @@ a {
 }
 
 .embedded-simulation-copy {
-  max-width: 44rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.45rem, 2.5vw, 2rem);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  text-align: center;
 }
 
 .embedded-simulation-copy h2 {
@@ -670,6 +675,8 @@ a {
   color: var(--muted);
   font-size: 1.08rem;
   line-height: 1.78;
+  max-width: 44rem;
+  margin: 0 auto;
 }
 
 .embedded-simulation-frame {
@@ -678,6 +685,7 @@ a {
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
+  padding: 0.65rem;
   background: #050810;
   box-shadow: var(--shadow);
 }
@@ -687,6 +695,9 @@ a {
   width: 100%;
   height: 100%;
   border: 0;
+  border-radius: calc(var(--radius-lg) - 8px);
+  overflow: hidden;
+  background: #050810;
 }
 
 .gimbal-cad-section {
