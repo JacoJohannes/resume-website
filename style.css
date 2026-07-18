@@ -1335,8 +1335,8 @@ a {
 }
 
 .project-media-battery {
-  aspect-ratio: 16 / 12;
-  padding: 1.75rem;
+  aspect-ratio: 16 / 10;
+  padding: 0.85rem;
   background: #ffffff;
 }
 
