@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swing Set Digital Twin Calculation Report</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #172033;
+        --muted: #657084;
+        --line: #dfe5ee;
+        --panel: #ffffff;
+        --paper: #f6f8fb;
+        --blue: #2368d8;
+        --cyan: #0c94b8;
+        --green: #247a51;
+        --amber: #b46a00;
+        --red: #c93333;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background:
+          radial-gradient(circle at top left, rgba(35, 104, 216, 0.12), transparent 34rem),
+          linear-gradient(180deg, #ffffff 0%, var(--paper) 42%, #eef3f8 100%);
+        color: var(--ink);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.55;
+      }
+
+      main {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 48px 0 72px;
+      }
+
+      header {
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+        gap: 28px;
+        align-items: end;
+        padding: 28px 0 34px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .eyebrow {
+        margin: 0 0 12px;
+        color: var(--blue);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        max-width: 760px;
+        font-size: clamp(2.2rem, 5vw, 5.2rem);
+        line-height: 0.98;
+        letter-spacing: 0;
+      }
+
+      .lede {
+        margin: 18px 0 0;
+        max-width: 760px;
+        color: #3d4a5f;
+        font-size: clamp(1rem, 1.8vw, 1.18rem);
+      }
+
+      .summary-panel {
+        background: rgba(255, 255, 255, 0.86);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 18px;
+        box-shadow: 0 18px 45px rgba(33, 48, 76, 0.08);
+      }
+
+      .summary-panel h2,
+      section h2 {
+        margin: 0 0 14px;
+        font-size: 0.92rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .summary-grid {
+        display: grid;
+        gap: 10px;
+      }
+
+      .summary-item {
+        display: grid;
+        grid-template-columns: 96px 1fr;
+        gap: 12px;
+        padding: 10px 0;
+        border-top: 1px solid #ebeff5;
+      }
+
+      .summary-item:first-of-type {
+        border-top: 0;
+      }
+
+      .summary-item strong {
+        color: var(--muted);
+        font-size: 0.78rem;
+        text-transform: uppercase;
+      }
+
+      .summary-item span {
+        font-weight: 700;
+      }
+
+      .report-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 320px;
+        gap: 28px;
+        margin-top: 34px;
+      }
+
+      section,
+      aside {
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 24px;
+        box-shadow: 0 16px 36px rgba(33, 48, 76, 0.06);
+      }
+
+      .stack {
+        display: grid;
+        gap: 22px;
+      }
+
+      .flow {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .flow div {
+        min-height: 116px;
+        border: 1px solid #d9e2ee;
+        border-radius: 8px;
+        padding: 14px;
+        background: #f9fbfd;
+      }
+
+      .flow strong {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--blue);
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .formula {
+        margin: 14px 0;
+        padding: 14px 16px;
+        border-left: 4px solid var(--blue);
+        background: #f4f7fb;
+        border-radius: 0 8px 8px 0;
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+        font-size: 0.92rem;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+
+      .note {
+        color: var(--muted);
+        font-size: 0.94rem;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 14px;
+        font-size: 0.94rem;
+      }
+
+      th,
+      td {
+        padding: 11px 10px;
+        border-bottom: 1px solid #e7edf5;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      th {
+        color: var(--muted);
+        font-size: 0.76rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .pill-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 14px;
+      }
+
+      .pill {
+        border: 1px solid #d8e1ec;
+        border-radius: 999px;
+        padding: 6px 10px;
+        background: #f8fbfe;
+        color: #445166;
+        font-size: 0.84rem;
+        font-weight: 700;
+      }
+
+      .side-list {
+        display: grid;
+        gap: 12px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .side-list li {
+        padding: 12px;
+        border: 1px solid #e0e7f0;
+        border-radius: 8px;
+        background: #f9fbfd;
+      }
+
+      .side-list strong {
+        display: block;
+        margin-bottom: 4px;
+      }
+
+      .metric {
+        display: grid;
+        gap: 8px;
+        margin-top: 16px;
+      }
+
+      .metric div {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 10px 0;
+        border-bottom: 1px solid #ebeff5;
+      }
+
+      .metric strong {
+        color: var(--muted);
+      }
+
+      .status {
+        display: inline-flex;
+        align-items: center;
+        min-height: 28px;
+        border-radius: 999px;
+        padding: 4px 10px;
+        color: #ffffff;
+        font-size: 0.8rem;
+        font-weight: 800;
+      }
+
+      .safe {
+        background: var(--green);
+      }
+
+      .adequate {
+        background: #78a400;
+      }
+
+      .marginal {
+        background: var(--amber);
+      }
+
+      .critical {
+        background: var(--red);
+      }
+
+      footer {
+        margin-top: 28px;
+        color: var(--muted);
+        font-size: 0.9rem;
+        text-align: center;
+      }
+
+      @media (max-width: 900px) {
+        header,
+        .report-grid,
+        .flow {
+          grid-template-columns: 1fr;
+        }
+
+        main {
+          width: min(100% - 20px, 720px);
+          padding-top: 24px;
+        }
+      }
+
+      @media print {
+        body {
+          background: #ffffff;
+        }
+
+        main {
+          width: 100%;
+          padding: 0;
+        }
+
+        section,
+        aside,
+        .summary-panel {
+          box-shadow: none;
+          break-inside: avoid;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <p class="eyebrow">Calculation Report</p>
+          <h1>Swing Set Digital Twin</h1>
+          <p class="lede">
+            This report explains how the digital twin in the dist build turns user inputs into
+            live swing motion, chain tension, beam stress, deflection, a strength-to-stress ratio, and the
+            telemetry graphs shown in the simulation.
+          </p>
+        </div>
+        <div class="summary-panel">
+          <h2>Model Snapshot</h2>
+          <div class="summary-grid">
+            <div class="summary-item">
+              <strong>Motion</strong>
+              <span>Damped pendulum solved at 60 Hz</span>
+            </div>
+            <div class="summary-item">
+              <strong>Loads</strong>
+              <span>Gravity plus centripetal chain tension</span>
+            </div>
+            <div class="summary-item">
+              <strong>Beam</strong>
+              <span>Simply supported center-load approximation</span>
+            </div>
+            <div class="summary-item">
+              <strong>Output</strong>
+              <span>Stress, deflection, model ratio, live graphs</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="report-grid">
+        <div class="stack">
+          <section>
+            <h2>How The Simulation Runs</h2>
+            <p>
+              The app treats each swing as a pendulum. Every animation frame it accumulates real
+              elapsed time, then advances the physics in fixed 1/60 second steps. The fixed time
+              step keeps the calculation stable even if the browser frame rate varies.
+            </p>
+            <div class="flow">
+              <div>
+                <strong>1. Inputs</strong>
+                Child mass, seat mass, chain length, start angle, beam span, beam section, wood
+                material, swing count, and scenario.
+              </div>
+              <div>
+                <strong>2. Motion</strong>
+                A damped pendulum equation updates angle and angular velocity.
+              </div>
+              <div>
+                <strong>3. Tension</strong>
+                The current speed and angle are converted into chain tension.
+              </div>
+              <div>
+                <strong>4. Beam</strong>
+                The vertical load component is used to estimate moment, stress, and deflection.
+              </div>
+              <div>
+                <strong>5. Display</strong>
+                Results drive the 3D visualization, status panel, load colors, and scrolling plots.
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2>Pendulum Motion</h2>
+            <p>
+              The angular state is the swing angle theta and angular velocity omega. The app uses
+              gravity, chain length, and a small damping coefficient to model swing-down behavior.
+            </p>
+            <div class="formula">theta'' = -(g / L) sin(theta) - c theta'</div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Symbol</th>
+                  <th>Meaning</th>
+                  <th>Value In App</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>g</td>
+                  <td>Gravity</td>
+                  <td>9.81 m/s^2</td>
+                </tr>
+                <tr>
+                  <td>L</td>
+                  <td>Chain length</td>
+                  <td>User input, default 1.9 m</td>
+                </tr>
+                <tr>
+                  <td>c</td>
+                  <td>Damping coefficient</td>
+                  <td>0.012</td>
+                </tr>
+                <tr>
+                  <td>dt</td>
+                  <td>Physics time step</td>
+                  <td>1/60 s</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="note">
+              The equation is integrated with a fourth-order Runge-Kutta step. That means each
+              update samples the slope four times and blends the result, giving smoother motion
+              than a simple Euler update.
+            </p>
+          </section>
+
+          <section>
+            <h2>Load Calculation</h2>
+            <p>
+              After the pendulum angle and angular velocity are updated, the app computes seat
+              speed, radial acceleration, and chain tension. The total swinging mass is the child
+              mass plus the seat mass.
+            </p>
+            <div class="formula">m = childMass + seatMass</div>
+            <div class="formula">speed = abs(omega * L)</div>
+            <div class="formula">centripetalTerm = m * L * omega^2</div>
+            <div class="formula">gravityAlongChain = m * g * cos(theta)</div>
+            <div class="formula">chainTension = (centripetalTerm + gravityAlongChain) * scenarioMultiplier</div>
+            <p>
+              Tension is highest near the bottom of the swing because speed is highest and
+              cos(theta) is close to 1. At the top of the arc, speed is lower and the gravity
+              component along the chain is smaller, so tension drops.
+            </p>
+          </section>
+
+          <section>
+            <h2>Scenario Multipliers</h2>
+            <p>
+              The scenarios are not separate finite-element simulations. They are quick load cases
+              that change starting angle, number of swings, phase relationship, and a load
+              multiplier.
+            </p>
+            <table>
+              <thead>
+                <tr>
+                  <th>Scenario</th>
+                  <th>Start Angle</th>
+                  <th>Swing Count</th>
+                  <th>Load Multiplier</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Static Child</td>
+                  <td>0 deg</td>
+                  <td>1</td>
+                  <td>1.0</td>
+                </tr>
+                <tr>
+                  <td>Normal Swing</td>
+                  <td>30 deg</td>
+                  <td>1</td>
+                  <td>1.0</td>
+                </tr>
+                <tr>
+                  <td>High Energy Swing</td>
+                  <td>55 deg</td>
+                  <td>1</td>
+                  <td>1.5</td>
+                </tr>
+                <tr>
+                  <td>Two Children, In Phase</td>
+                  <td>40 deg</td>
+                  <td>2</td>
+                  <td>2.0</td>
+                </tr>
+                <tr>
+                  <td>Two Children, Out Of Phase</td>
+                  <td>40 deg</td>
+                  <td>2</td>
+                  <td>1.2</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="note">
+              When the swing count is 2, the app also applies a distribution factor of 1.85 to the
+              force components. This approximates two nearby dynamic loads without fully modeling
+              the beam as a multi-load continuous system.
+            </p>
+          </section>
+
+          <section>
+            <h2>From Chain Tension To Beam Force</h2>
+            <p>
+              Chain tension is resolved into vertical and horizontal components using the current
+              swing angle. The structural beam calculations use the vertical force component.
+            </p>
+            <div class="formula">verticalForce = chainTension * cos(theta) * distributionFactor</div>
+            <div class="formula">horizontalForce = chainTension * sin(abs(theta)) * distributionFactor</div>
+            <p>
+              The vertical component drives bending in the top beam. The horizontal component is
+              still shown as useful telemetry because it represents the side load that the frame
+              and bracing must react.
+            </p>
+          </section>
+
+          <section>
+            <h2>Beam Stress And Deflection</h2>
+            <p>
+              The top beam is approximated as a rectangular simply supported beam with a central
+              point load. The app converts the beam width and height from millimeters to meters,
+              computes section properties, then estimates bending moment, stress, and deflection.
+            </p>
+            <div class="formula">sectionModulus = b * h^2 / 6</div>
+            <div class="formula">secondMoment = b * h^3 / 12</div>
+            <div class="formula">bendingMoment = verticalForce * beamLength / 4</div>
+            <div class="formula">bendingStressMPa = (bendingMoment / sectionModulus) / 1,000,000</div>
+            <div class="formula">deflectionMm = verticalForce * beamLength^3 / (48 * E * secondMoment) * 1,000</div>
+            <p class="note">
+              These are classic beam equations for a simply supported span with a center load:
+              maximum moment is P L / 4 and center deflection is P L^3 / 48 E I.
+            </p>
+          </section>
+
+          <section>
+            <h2>Simplified Strength-to-Stress Ratio</h2>
+            <p>
+              The app compares calculated bending stress against the selected wood material's
+              modulus of rupture. This ratio is a model output, not a safety factor or approval.
+            </p>
+            <div class="formula">modelRatio = modulusOfRuptureMPa / bendingStressMPa</div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Model ratio</th>
+                  <th>Model label</th>
+                  <th>Interpretation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>4.0 or higher</td>
+                  <td><span class="status safe">HIGH MODEL RATIO</span></td>
+                  <td>Large reserve in the simplified bending check.</td>
+                </tr>
+                <tr>
+                  <td>2.5 to 4.0</td>
+                  <td><span class="status adequate">MODERATE MODEL RATIO</span></td>
+                  <td>Reasonable reserve for the model assumptions.</td>
+                </tr>
+                <tr>
+                  <td>1.5 to 2.5</td>
+                  <td><span class="status marginal">LOW MODEL RATIO</span></td>
+                  <td>Close enough that details, fasteners, knots, and joints matter a lot.</td>
+                </tr>
+                <tr>
+                  <td>Below 1.5</td>
+                  <td><span class="status critical">NEAR MODEL LIMIT</span></td>
+                  <td>Stress reserve is low in the simplified model.</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section>
+            <h2>What The Report Does Not Claim</h2>
+            <p>
+              This digital twin is an explanatory design and visualization model. It is useful for
+              understanding load trends, dynamic amplification, and why the bottom of the swing is
+              the demanding case. It is not a stamped structural analysis.
+            </p>
+            <div class="pill-list">
+              <span class="pill">No fastener check</span>
+              <span class="pill">No joint slip model</span>
+              <span class="pill">No local bearing check</span>
+              <span class="pill">No wood defects</span>
+              <span class="pill">No fatigue model</span>
+              <span class="pill">No full frame FEA</span>
+            </div>
+          </section>
+        </div>
+
+        <aside>
+          <h2>Inputs And Constants</h2>
+          <ul class="side-list">
+            <li>
+              <strong>Default Geometry</strong>
+              Chain length 1.9 m, beam length 3.0 m, beam section 140 mm by 140 mm.
+            </li>
+            <li>
+              <strong>Default Mass</strong>
+              Child mass 30 kg, seat mass 3 kg, total simulated payload 33 kg.
+            </li>
+            <li>
+              <strong>Gravity</strong>
+              9.81 m/s^2.
+            </li>
+            <li>
+              <strong>Damping</strong>
+              0.012 in the pendulum equation.
+            </li>
+          </ul>
+
+          <div class="metric">
+            <div>
+              <strong>Douglas Fir Modulus of Rupture</strong>
+              <span>50 MPa</span>
+            </div>
+            <div>
+              <strong>Douglas Fir E</strong>
+              <span>13 GPa</span>
+            </div>
+            <div>
+              <strong>Cedar Modulus of Rupture</strong>
+              <span>37 MPa</span>
+            </div>
+            <div>
+              <strong>Cedar E</strong>
+              <span>7.7 GPa</span>
+            </div>
+            <div>
+              <strong>Pressure Pine Modulus of Rupture</strong>
+              <span>45 MPa</span>
+            </div>
+            <div>
+              <strong>Pressure Pine E</strong>
+              <span>11 GPa</span>
+            </div>
+          </div>
+
+          <h2 style="margin-top: 26px">Telemetry</h2>
+          <p class="note">
+            The graph stores the latest 200 samples. It plots time, swing angle in degrees, chain
+            tension in newtons, and beam stress in MPa. The displayed 3D color mode maps higher
+            stress ratios toward warning colors.
+          </p>
+
+          <h2 style="margin-top: 26px">Plain-English Summary</h2>
+          <p class="note">
+            The simulation first asks, "Where is the child in the swing arc and how fast are they
+            moving?" It then asks, "How much chain tension does that motion create?" Finally it
+            asks, "If that load acts on the top beam, what bending stress and deflection result?"
+          </p>
+          <p class="note">
+            Modulus of rupture is the bending strength value used for each wood option. The app
+            divides this strength by the calculated beam stress to estimate the model ratio.
+          </p>
+        </aside>
+      </div>
+    </main>
+  </body>
+</html>

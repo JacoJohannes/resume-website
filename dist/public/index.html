@@ -4,22 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
     <title>DIY Swing Set Digital Twin</title>
-    <meta name="description" content="DIY Swing Set Digital Twin — built on Replit. Update this description to reflect the app." />
+    <meta name="description" content="An educational swing-set visualization using simplified pendulum and beam models; not a certified structural analysis." />
     <meta name="robots" content="index, follow" />
     <meta property="og:title" content="DIY Swing Set Digital Twin" />
-    <meta property="og:description" content="DIY Swing Set Digital Twin — built on Replit. Update this description to reflect the app." />
+    <meta property="og:description" content="An educational swing-set visualization using simplified pendulum and beam models; not a certified structural analysis." />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="DIY Swing Set Digital Twin" />
-    <meta name="twitter:description" content="DIY Swing Set Digital Twin — built on Replit. Update this description to reflect the app." />
+    <meta name="twitter:description" content="An educational swing-set visualization using simplified pendulum and beam models; not a certified structural analysis." />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="./assets/index--GtrWMUo.js?v=20260526"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-CCoieXJI.css?v=20260526">
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      const simulationScript = document.createElement('script');
+      simulationScript.src = './assets/index--GtrWMUo.js?v=20260718-neutral-model-labels';
+      if (window.location.protocol === 'file:') {
+        simulationScript.async = false;
+      } else {
+        simulationScript.type = 'module';
+        simulationScript.crossOrigin = 'anonymous';
+      }
+      document.body.appendChild(simulationScript);
+    </script>
   </body>
 </html>

@@ -298,21 +298,21 @@
       </div>
       <h1>Battery Pack Optimizer Project Report</h1>
       <p class="subtitle">
-        A practical Python GUI for grouping 18650 cells into balanced series/parallel packs using capacity, DCIR, and voltage safety checks.
+        A practical Python GUI for grouping measured 18650 cells using capacity, DCIR, and configurable voltage-spread screening.
       </p>
       <div class="meta">
         <span class="pill">Python</span>
         <span class="pill">PySide6 GUI</span>
         <span class="pill">Excel input/output</span>
         <span class="pill">Simulated annealing</span>
-        <span class="pill">Voltage safety guardrails</span>
+        <span class="pill">Voltage-spread screening</span>
       </div>
     </header>
 
     <section>
       <h2>Executive Summary</h2>
       <p class="lead">
-        The application helps build safer and better balanced battery packs by assigning cells into series groups with parallel slots. It validates spreadsheet data, selects the best cells when extras are available, optimizes group balance, checks parallel voltage spread, visualizes the final layout, and exports a formatted workbook.
+        The application is a planning aid for assigning measured cells into series groups with parallel slots. It validates spreadsheet data, selects cells when extras are available, optimizes group balance, applies configurable voltage-spread screening, visualizes the layout, and exports a formatted workbook. It does not determine whether a pack is safe to build or use.
       </p>
       <div class="grid three">
         <div class="card green">
@@ -321,27 +321,27 @@
           <ul>
             <li>Similar group capacity</li>
             <li>Similar parallel DCIR</li>
-            <li>Safe voltage spread inside each parallel group</li>
+            <li>Configured voltage-spread limits inside each parallel group</li>
           </ul>
         </div>
         <div class="card blue">
-          <div class="label">Core Safety Addition</div>
+          <div class="label">Example Screening Bands</div>
           <div class="big">Voltage matching</div>
           <ul>
-            <li>Good: ≤ 0.02 V</li>
-            <li>Acceptable: ≤ 0.05 V</li>
-            <li>Warning: > 0.05 V</li>
-            <li>Unsafe: > 0.10 V</li>
+            <li>Lowest penalty: ≤ 0.02 V</li>
+            <li>Small penalty: 0.02–0.05 V</li>
+            <li>Strong penalty: > 0.05 V</li>
+            <li>Example rejection level: > 0.10 V</li>
           </ul>
         </div>
         <div class="card amber">
           <div class="label">Final Output</div>
-          <div class="big">Builder ready report</div>
+          <div class="big">Planning report</div>
           <ul>
             <li>Pack summary</li>
             <li>Visual layout</li>
             <li>Grouped cells table</li>
-            <li>Excel export with safety colors</li>
+            <li>Excel export with screening colors</li>
           </ul>
         </div>
       </div>
@@ -368,7 +368,7 @@
             <li>Nominal and full cell voltage</li>
             <li>Capacity, DCIR, and voltage weights</li>
             <li>Max allowed parallel voltage spread</li>
-            <li>Unsafe voltage spread threshold</li>
+            <li>User-defined rejection threshold</li>
           </ul>
         </div>
       </div>
@@ -392,7 +392,7 @@
         </div>
       </div>
       <div class="card blue" style="margin-top:16px;">
-        <div class="label">Voltage safety guardrail</div>
+        <div class="label">Voltage-spread screen</div>
         <p>Voltage is treated differently from capacity and DCIR. Capacity/DCIR are balanced between series groups. Voltage spread is checked inside each parallel group, because cells connected in parallel must be close in voltage before connection.</p>
         <span class="formula">group_voltage_spread = max(group voltages) minus min(group voltages)</span>
       </div>
@@ -414,7 +414,9 @@
         <div class="card amber">
           <div class="label">DCIR balance</div>
           <p>
-            DCIR is calculated as parallel resistance inside each group. Groups with higher resistance sag more under load and heat more, so the optimizer tries to keep group resistance values close together.
+            DCIR is calculated as parallel resistance inside each group. At a given current,
+            higher-resistance groups can experience more voltage drop and resistive heating, so
+            the optimizer tries to keep group resistance values close together.
           </p>
           <span class="formula">dcir_score = standard deviation of group DCIR values divided by average group DCIR</span>
         </div>
@@ -423,19 +425,22 @@
         <div class="card blue">
           <div class="label">Voltage penalty</div>
           <p>
-            Voltage is handled as a safety check inside each parallel group. Small spreads are allowed, but larger spreads add a penalty because cells at different voltages can drive equalization current into each other when connected.
+            Voltage is handled as a configurable screening input inside each parallel group.
+            Larger spreads add a penalty because directly connecting cells at different voltages
+            can drive equalization current between them.
           </p>
           <ul>
             <li>Up to 0.02 V adds no penalty</li>
             <li>0.02 to 0.05 V adds a small penalty</li>
             <li>Above 0.05 V adds a strong penalty</li>
-            <li>Above 0.10 V is treated as unsafe and flagged clearly</li>
+            <li>Above 0.10 V reaches the example rejection setting</li>
           </ul>
         </div>
         <div class="card">
           <div class="label">Weighted total</div>
           <p>
-            The final score combines the three parts using user selected weights. This lets the builder decide what matters most for a given pack, while still keeping voltage safety visible.
+            The final score combines the three parts using user-selected weights. The resulting
+            score compares candidate layouts under those settings; it is not a safety rating.
           </p>
           <span class="formula">total_score = capacity_weight times capacity_score plus dcir_weight times dcir_score plus voltage_weight times voltage_penalty</span>
         </div>
@@ -449,30 +454,33 @@
     </section>
 
     <section>
-      <h2>Voltage Safety Logic</h2>
+      <h2>Voltage-Spread Screening Logic</h2>
       <p class="lead">
-        The most important safety rule is not average voltage. It is the spread inside each parallel group. A high voltage cell connected directly in parallel with a lower voltage cell can push equalization current between cells, causing heat, sparks, cell stress, or damage.
+        Voltage spread inside a proposed parallel group is one relevant screening input. Directly
+        connecting cells at different voltages can drive equalization current between them, but
+        no universal spread threshold makes a pack safe. Cell model, chemistry, state of charge,
+        condition, temperature, protection, construction, and manufacturer guidance also matter.
       </p>
       <div class="status">
-        <div class="good">Good<br><span>≤ 0.02 V</span></div>
-        <div class="acceptable">Acceptable<br><span>≤ 0.05 V</span></div>
-        <div class="warning">Warning<br><span>> 0.05 V</span></div>
-        <div class="unsafe">Unsafe<br><span>> 0.10 V</span></div>
+        <div class="good">No penalty<br><span>≤ 0.02 V</span></div>
+        <div class="acceptable">Small penalty<br><span>0.02–0.05 V</span></div>
+        <div class="warning">Strong penalty<br><span>> 0.05 V</span></div>
+        <div class="unsafe">Example reject<br><span>> 0.10 V</span></div>
       </div>
       <div class="grid two">
         <div class="card">
           <div class="label">Current scoring behavior</div>
-          <p>The voltage logic was refined so safe voltage matching does not overpower the whole optimizer.</p>
+          <p>The example voltage bands are scoring settings, not validated safety limits.</p>
           <ul>
             <li>≤ 0.02 V: no voltage penalty</li>
             <li>0.02 to 0.05 V: small nudge penalty</li>
             <li>> 0.05 V: strong penalty or rejection</li>
-            <li>> 0.10 V: unsafe warning</li>
+            <li>> 0.10 V: example rejection warning</li>
           </ul>
         </div>
         <div class="card">
-          <div class="label">Recommendation</div>
-          <p>Before physical assembly, cells should be balanced to approximately the same voltage, ideally within 0.02 to 0.05 V.</p>
+          <div class="label">Important limitation</div>
+          <p>Before any physical work, cell compatibility and acceptable conditions must be established from the cell manufacturer's guidance and an appropriate pack-safety process. This tool does not provide that validation.</p>
         </div>
       </div>
     </section>
@@ -483,7 +491,7 @@
         <div class="card green">
           <div class="label">In the GUI</div>
           <ul>
-            <li>Pack summary with voltage safety recommendation</li>
+            <li>Pack summary with voltage-spread screening result</li>
             <li>Visual pack layout by series group and parallel slot</li>
             <li>Grouped cells table</li>
             <li>Group summary table</li>
@@ -497,7 +505,7 @@
             <li>Group Summary</li>
             <li>Pack Summary</li>
             <li>Unused Cells</li>
-            <li>Conditional formatting for voltage safety status</li>
+            <li>Conditional formatting for configured screening bands</li>
           </ul>
         </div>
       </div>
@@ -515,12 +523,12 @@
           <p>The first visual pass was too tall for smaller screens. The sidebar was changed so settings scroll independently, while the Optimize button, status log, and progress bar remain pinned at the bottom.</p>
         </div>
         <div class="event">
-          <strong>Voltage safety</strong>
+          <strong>Voltage screening</strong>
           <p>The app originally optimized capacity and DCIR only. Voltage was added because cells connected in parallel need close voltages before assembly to reduce equalization current risk.</p>
         </div>
         <div class="event">
           <strong>Too strict voltage scoring</strong>
-          <p>The first voltage scoring method penalized every tiny voltage spread. This caused the optimizer to lock onto the voltage sorted starting layout. The scoring was changed so ideal spreads have no penalty and voltage acts mainly as a safety guardrail.</p>
+          <p>The first voltage scoring method penalized every tiny voltage spread. This caused the optimizer to lock onto the voltage-sorted starting layout. The scoring was changed so the lowest example band has no penalty and larger spreads act as a configurable constraint.</p>
         </div>
         <div class="event">
           <strong>Diagnostics noise</strong>

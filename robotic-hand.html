@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HEDE5BHJ15"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HEDE5BHJ15');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="A robotic hand project using the open-source Orca Hand V1 and silicone-moulding research for affordable, dexterous manipulation."
+  />
+  <title>Robotic Hand | Johannes</title>
+  <script>
+    document.documentElement.classList.add('js');
+  </script>
+  <link rel="stylesheet" href="style.css?v=20260718-force-crop-mini-table" />
+</head>
+<body data-page="portfolio">
+  <div class="page-wipe" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="index.html">Johannes</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a class="nav-link" href="index.html">About</a>
+        <a class="nav-link is-active" href="portfolio.html" aria-current="page">Portfolio</a>
+        <a class="nav-link" href="https://www.linkedin.com/in/johannes-steyn/" target="_blank" rel="noreferrer">LinkedIn</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section project-page">
+    <section class="container project-top-actions reveal is-visible">
+      <a class="button button-secondary" href="portfolio.html">Back to Portfolio</a>
+    </section>
+
+    <section class="container project-detail">
+      <div class="project-detail-media project-detail-contain reveal is-visible">
+        <img src="assets/projects/robotic-hand-cad.png?v=20260718-2" alt="CAD render of the ORCA Hand V1 Legacy robotic hand and control electronics" />
+      </div>
+
+      <div class="project-detail-copy reveal delay-1">
+        <div class="project-copy-main">
+          <span class="project-type">Personal</span>
+          <h1>Robotic Hand</h1>
+          <p>
+            Using the <a href="https://www.orcahand.com/legacy/files" target="_blank" rel="noreferrer">open-source Orca Hand V1</a>, this project utilizes
+            silicone-moulding research to develop low-cost, compliant fingers
+            for dexterous hand manipulation.
+          </p>
+        </div>
+
+        <div class="tag-list">
+          <span>Robotics</span>
+          <span>Silicone Moulding</span>
+          <span>Controls</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="container project-visual-section reveal">
+      <div class="project-visual-copy">
+        <div>
+          <span class="project-type">Finger Manufacturing</span>
+          <h2>Silicone-Moulded Joint Fingers</h2>
+        </div>
+        <p>
+          The articulated joint chain is placed inside a custom mould and encapsulated
+          in silicone, creating a compliant outer finger while retaining the internal
+          tendon-driven mechanism. This process is intended to keep each finger
+          inexpensive to manufacture and robust during contact.
+        </p>
+        <p>
+          A future revision will integrate precision encoders at the joints to measure
+          individual joint angles, enabling better sensing and closed-loop control.
+        </p>
+      </div>
+      <figure class="project-visual-media project-visual-media-mould">
+        <img src="assets/projects/robotic-hand-finger-mould.jpeg" alt="Articulated robotic finger joint chain positioned in a silicone mould with tendon lines attached" loading="lazy" decoding="async" />
+        <figcaption>Finger joint chain ready for silicone moulding</figcaption>
+      </figure>
+    </section>
+
+    <section class="container project-visual-section project-visual-section-flip reveal">
+      <div class="project-visual-copy">
+        <div>
+          <span class="project-type">Prototype Test</span>
+          <h2>Single-Finger Force Test</h2>
+        </div>
+        <p>
+          A preliminary bench test recorded 1,600–1,800 gram-force (gf) at maximum actuation,
+          equivalent to approximately <strong>15.7–17.7 N</strong>. Repeatability and
+          sustained-load performance have not yet been established.
+        </p>
+      </div>
+      <div class="project-visual-media project-visual-media-test">
+        <img src="assets/projects/robotic-hand-single-finger-test.jpeg" alt="One-finger robotic hand test setup with a custom silicone-moulded finger and tendon actuation" loading="lazy" decoding="async" />
+      </div>
+    </section>
+
+    <section class="container project-visual-section reveal">
+      <div class="project-visual-copy">
+        <div>
+          <span class="project-type">Actuator Study</span>
+          <h2>XC430 vs XC330</h2>
+        </div>
+        <p>
+          At 12 V, the XC430 provides 1.9 N·m of stall torque versus 1.0 N·m
+          from the XC330, while both run at about 70 rpm. The XC430 suits
+          higher loads; the smaller XC330 saves space and weight.
+        </p>
+
+        <div class="servo-mini-table-wrap">
+          <table class="servo-mini-table">
+            <thead>
+              <tr>
+                <th scope="col">At 12 V</th>
+                <th scope="col">XC330</th>
+                <th scope="col">XC430</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Stall torque</th>
+                <td>1.0 N·m</td>
+                <td>1.9 N·m</td>
+              </tr>
+              <tr>
+                <th scope="row">Speed</th>
+                <td>71 rpm</td>
+                <td>70 rpm</td>
+              </tr>
+              <tr>
+                <th scope="row">Weight</th>
+                <td>23 g</td>
+                <td>65 g</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="servo-comparison-note">
+          Stall torque is a momentary maximum. Specifications:
+          <a href="https://emanual.robotis.com/docs/en/dxl/x/xc330-t288/" target="_blank" rel="noreferrer">XC330-T288</a>
+          and
+          <a href="https://emanual.robotis.com/docs/en/dxl/x/xc430-t240bb/" target="_blank" rel="noreferrer">XC430-T240BB</a>.
+        </p>
+      </div>
+      <figure class="project-visual-media project-visual-media-servo">
+        <img src="assets/projects/robotic-hand-servo-comparison-final.jpeg" alt="Three robotic hand actuator housings used while comparing XC430 and XC330 Dynamixel servos" loading="lazy" decoding="async" />
+        <figcaption>Orca Hand V1 adapted for XC430 Dynamixels</figcaption>
+      </figure>
+    </section>
+
+    <section class="container project-research-note reveal" aria-labelledby="force-context-title">
+      <span class="project-type">Force in Context</span>
+      <h2 id="force-context-title">Preliminary force result in context</h2>
+      <p>
+        Published individual-finger forces during daily activities range from 1.4–34.8 N,
+        while the cited research hands report approximately 28–34.4 N of fingertip force.
+        The preliminary test result falls within part of the human activity range, but it does
+        not yet demonstrate whole-hand grasp performance.
+      </p>
+      <p>
+        Next steps are multi-finger testing, dexterity benchmarks, and eventually
+        transitioning to less expensive motors.
+      </p>
+      <p class="project-research-sources">
+        Sources:
+        <a href="https://doi.org/10.1016/j.jht.2020.04.002" target="_blank" rel="noreferrer">human daily activities</a>,
+        <a href="https://www.nature.com/articles/s41467-021-27261-0" target="_blank" rel="noreferrer">ILDA</a>,
+        and <a href="https://msc.berkeley.edu/research/mechatronics/dexco.html" target="_blank" rel="noreferrer">DexCo</a>.
+      </p>
+    </section>
+
+    <section class="container">
+      <div class="button-row">
+        <a class="button button-secondary" href="portfolio.html">Back to Portfolio</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-shell">
+      <p>Portfolio</p>
+      <p><span id="year"></span></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -19,7 +19,7 @@
   <script>
     document.documentElement.classList.add('js');
   </script>
-  <link rel="stylesheet" href="style.css?v=20260525" />
+  <link rel="stylesheet" href="style.css?v=20260718-robotic-hand-orca" />
 </head>
 <body data-page="portfolio">
   <div class="page-wipe" aria-hidden="true"></div>
@@ -48,7 +48,7 @@
         <span class="project-type">Personal</span>
         <h2>E Bike Battery Pack</h2>
         <p>
-          A custom lithium-ion battery pack project for an electric bike, focused on safe
+          A custom lithium-ion battery pack project for an electric bike, focused on
           packaging, protection circuitry, and a serviceable enclosure.
         </p>
         <div class="tag-list">
@@ -65,8 +65,8 @@
         <span class="project-type">Personal</span>
         <h2>Self-Supporting Swing for My Niece</h2>
         <p>
-          A sturdy backyard swing made for the best niece in the world, designed for
-          safe outdoor use and easy maintenance.
+          A backyard swing made for the best niece in the world, designed with stability,
+          durability, inspection, and maintenance in mind.
         </p>
         <div class="tag-list">
           <span>Machining</span>
@@ -93,18 +93,52 @@
 
       <a class="project-card project-card-link reveal delay-1" href="celestial-atlas/" aria-label="Open the Celestial Atlas interactive page">
         <div class="project-media project-media-photo" aria-label="Preview of the interactive Celestial Atlas">
-          <img src="assets/projects/celestial-atlas.png" alt="Dark celestial atlas showing accurately plotted northern constellations" loading="lazy" decoding="async" />
+          <img src="assets/projects/celestial-atlas.png" alt="Dark celestial atlas showing plotted northern constellations" loading="lazy" decoding="async" />
         </div>
         <span class="project-type">Personal</span>
         <h2>Celestial Atlas</h2>
         <p>
-          An interactive guide to the northern and southern skies, with accurate constellation
-          figures, month-by-month views, sourced star data, and a flashcard-style learning quiz.
+          An interactive guide to the northern and southern skies, using J2000 star positions,
+          Stellarium-style constellation figures, sourced star data, and a learning quiz.
         </p>
         <div class="tag-list">
           <span>Interactive Design</span>
           <span>Astronomy Data</span>
           <span>React</span>
+        </div>
+      </a>
+
+      <a class="project-card project-card-link reveal delay-1" href="baseline/index.html" aria-label="Open the LabReview bloodwork interpretation prototype">
+        <div class="project-media project-media-photo" aria-label="LabReview app cover">
+          <img src="assets/projects/labreview-cover-v2.png" alt="LabReview bloodwork interpretation app cover" loading="lazy" decoding="async" />
+        </div>
+        <span class="project-type">Personal</span>
+        <h2>LabReview</h2>
+        <p>
+          A privacy-first educational prototype that organizes lab results, provides
+          evidence-linked context, and prepares questions for a healthcare visit. It is not diagnostic.
+        </p>
+        <div class="tag-list">
+          <span>JavaScript</span>
+          <span>PDF Parsing</span>
+          <span>Health Data UX</span>
+        </div>
+      </a>
+
+      <a class="project-card project-card-link reveal delay-1" href="robotic-hand.html" aria-label="Open Robotic Hand project details">
+        <div class="project-media project-media-photo project-media-robotic-hand" aria-label="CAD render of the Robotic Hand project">
+          <img src="assets/projects/robotic-hand-cad.png?v=20260718-2" alt="CAD render of the ORCA Hand V1 Legacy platform used for the Robotic Hand project" loading="lazy" decoding="async" />
+        </div>
+        <span class="project-type">Personal</span>
+        <h2>Robotic Hand</h2>
+        <p>
+          Using the open-source Orca Hand V1 and silicone-moulding research
+          to explore affordable, dexterous hand manipulation.
+        </p>
+        <div class="tag-list">
+          <span>Robotics</span>
+          <span>Silicone Moulding</span>
+          <span>Controls</span>
         </div>
       </a>
 
@@ -120,7 +154,7 @@
         <h2>Battery Pack Optimizer GUI</h2>
         <p>
           A desktop tool for sorting measured 18650 cells into balanced battery pack groups,
-          with safety checks, pack visualization, and Excel export.
+          with configurable voltage-spread screening, pack visualization, and Excel export.
         </p>
         <div class="tag-list">
           <span>Python</span>
@@ -137,30 +171,12 @@
         <h2>Differential TVC Gimbal</h2>
         <p>
           A compact gimbal for our TVC rocket that replaces linear actuators with
-          a differential bevel gear drive, cutting weight and response time.
+          a differential bevel gear drive, targeting lower weight and faster response.
         </p>
         <div class="tag-list">
           <span>CAD</span>
           <span>3D Printing</span>
           <span>DFM</span>
-        </div>
-      </article>
-
-      <article class="project-card reveal delay-2">
-        <div class="project-media project-media-photo project-media-fit-white" aria-label="Python dashboard for thrust stand analysis">
-          <img src="Images/Python Dashboard.jpeg" alt="PySide6 and Matplotlib dashboard for thrust stand sweep analysis" loading="lazy" decoding="async" />
-        </div>
-        <span class="project-type">UBC Rocket</span>
-        <h2>Thrust Stand Analysis Dashboard</h2>
-        <p>
-          Ported an existing MATLAB thrust-stand analysis workflow into a
-          standalone Python GUI for processing motor sweep logs and viewing
-          model diagnostics.
-        </p>
-        <div class="tag-list">
-          <span>Python</span>
-          <span>PySide6</span>
-          <span>Matplotlib</span>
         </div>
       </article>
 
@@ -189,8 +205,8 @@
         <h2>Process Monitoring Layouts</h2>
         <p>
           Layouts and diagnostic schematics for motors, pumps, and conveyors
-          using SKF @ptitude, reducing diagnostic time by about 25% and
-          improving client documentation quality.
+          using SKF @ptitude, created to support faster diagnostics and improve
+          client documentation quality.
         </p>
         <div class="tag-list">
           <span>Vibration Analysis</span>
